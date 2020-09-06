@@ -12,11 +12,11 @@ Pretendo adicionar mais funcionalidades e construir uma interface gráfica futur
 #### Preparando o ambiente:
    - Atualize o pip.
    ```sh
-$ pip install --upgrade pip 
+pip install --upgrade pip 
 ```
   - Instale o Selenium.
    ```sh
-$ pip install selenium
+pip install selenium
 ```
   - Baixe o Webdriver ou utilize o que deixei na pasta ['Webdriver'](https://github.com/drbuche/InstaBot/tree/master/Webdriver).
   - Mova o Webdriver para:
