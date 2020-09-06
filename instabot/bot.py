@@ -80,7 +80,7 @@ class InstagramBot:
             try:
                 time.sleep(random.randint(2, 4))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
-                time.sleep(5)
+                time.sleep(random.randint(25, 35))
             except Exception:
                 time.sleep(2)
             numero_de_fotos -= 1
