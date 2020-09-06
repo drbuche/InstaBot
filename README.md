@@ -18,7 +18,7 @@ pip install --upgrade pip
    ```sh
 pip install selenium
 ```
-  - Baixe o Webdriver ou utilize o que deixei na pasta ['Webdriver'](https://github.com/drbuche/InstaBot/tree/master/Webdriver).
+  - Baixe o Webdriver referente ao navegador: [Chrome](https://chromedriver.chromium.org/downloads) ou [Firefox](https://github.com/mozilla/geckodriver/releases)
   - Mova o Webdriver para:
    ```sh
 sudo mv ~/local_do_driver/driver /usr/local/bin
