@@ -1,11 +1,13 @@
 from instabot.bot import *
 from getpass import getpass
+import sys
+from datetime import datetime
 
 if __name__ == "__main__":
 
     funcao = ''
-    hashtags = ['floresta', 'casa']
-    comentarios = ["Show!", "Curti!", "Bela foto!", "S2 S2", "Amei!", "STATUS ATUAL: APAIXONADA!"]
+    hashtags = ['gamerbrasil', 'lolbr','emcasa']
+    comentarios = ["Show!", "S2 S2!", "Amei!", "STATUS ATUAL: APAIXONADA!"]
 
     username = input('Qual o usuário?')
     password = getpass(prompt='Qual a senha?')
@@ -29,8 +31,13 @@ if __name__ == "__main__":
     instagram.login()
 
     while True:
+        if len(hashtags) == 0:
+            instagram.close_browser()
+            print('A lista de hashtags acabou!')
+            sys.exit()
         try:
             tag = random.choice(hashtags)
+            print(f'Hashtag atual: #{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             instagram.selecionar_fotos(tag)
             eval('instagram.' + funcao)
             hashtags.remove(tag)
