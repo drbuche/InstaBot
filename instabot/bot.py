@@ -108,3 +108,5 @@ class InstagramBot:
                 time.sleep(2)
             numero_de_fotos -= 1
 
+    def limpar_urefs(self):
+        self.pic_hrefs.clear()
