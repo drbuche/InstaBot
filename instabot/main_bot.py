@@ -6,7 +6,7 @@ from datetime import datetime
 if __name__ == "__main__":
 
     funcao = ''
-    hashtags = ['gamerbrasil', 'lolbr','emcasa']
+    hashtags = ['lolbr','festa', 'gamer', 'rpg']
     comentarios = ["Show!", "S2 S2!", "Amei!", "STATUS ATUAL: APAIXONADA!"]
 
     username = input('Qual o usuário?')
@@ -41,6 +41,7 @@ if __name__ == "__main__":
             instagram.selecionar_fotos(tag)
             eval('instagram.' + funcao)
             hashtags.remove(tag)
+            instagram.limpar_urefs()
         except Exception:
             instagram.close_browser()
             time.sleep(60)
