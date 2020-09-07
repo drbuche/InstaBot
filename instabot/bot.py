@@ -64,7 +64,7 @@ class InstagramBot:
                 self.digite_como_pessoa(random.choice(comentarios), campo_comentario)
                 time.sleep(2)
                 driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
-                time.sleep(random.randint(30, 40))
+                time.sleep(random.randint(45, 59))
             except Exception:
                 time.sleep(2)
             numero_de_fotos -= 1
@@ -78,9 +78,9 @@ class InstagramBot:
             driver.get(foto_atual)
             time.sleep(2)
             try:
-                time.sleep(random.randint(2, 4))
+                time.sleep(random.randint(2, 10))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
-                time.sleep(random.randint(25, 35))
+                time.sleep(random.randint(45, 59))
             except Exception:
                 time.sleep(2)
             numero_de_fotos -= 1
@@ -94,7 +94,7 @@ class InstagramBot:
             driver.get(foto_atual)
             time.sleep(2)
             try:
-                time.sleep(random.randint(2, 4))
+                time.sleep(random.randint(2, 10))
                 driver.find_element_by_class_name('Ypffh').click()
                 campo_comentario = driver.find_element_by_class_name('Ypffh')
                 time.sleep(random.randint(2, 4))
@@ -103,7 +103,7 @@ class InstagramBot:
                 driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
                 time.sleep(2)
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
-                time.sleep(random.randint(30, 40))
+                time.sleep(random.randint(45, 59))
             except Exception:
                 time.sleep(2)
             numero_de_fotos -= 1
