@@ -10,13 +10,29 @@ class InstagramBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox()  # Navegador que deseja utilizar
 
     @staticmethod
     def digite_como_pessoa(frase, onde_digitar):
         for letra in frase:
             onde_digitar.send_keys(letra)
-            time.sleep(random.randint(1, 5) / 30)
+            time.sleep(random.randint(1, 8) / 30)
+
+    @staticmethod
+    def comentario_aleatorio(x, y, z):
+        """
+        :param x: grupo de palavra inicial
+        :param y: grupo de palavra secundaria
+        :param z: emoji
+        :return: uma frase sendo: (x + y) ou (x + z) ou (y + z)
+        """
+        option = random.randrange(3)
+        if option == 0:
+            return random.choice(x) + random.choice(y)
+        elif option == 1:
+            return random.choice(y) + random.choice(z)
+        else:
+            return random.choice(x) + random.choice(z)
 
     def close_browser(self):
         self.driver.close()
@@ -24,7 +40,7 @@ class InstagramBot:
     def login(self):
         driver = self.driver
         driver.get("https://www.instagram.com/")
-        time.sleep(2)
+        time.sleep(5)
         user_name_elem = driver.find_element_by_xpath("//input[@name='username']")
         user_name_elem.clear()
         user_name_elem.send_keys(self.username)
@@ -32,7 +48,7 @@ class InstagramBot:
         passworword_elem.clear()
         passworword_elem.send_keys(self.password)
         passworword_elem.send_keys(Keys.RETURN)
-        time.sleep(4)
+        time.sleep(6)
 
     def selecionar_fotos(self, hashtag):
         driver = self.driver
@@ -50,7 +66,7 @@ class InstagramBot:
             except Exception:
                 continue
 
-    def comentar_fotos(self, comentarios):
+    def comentar_fotos(self, x, y, z):
         driver = self.driver
         numero_de_fotos = len(self.pic_hrefs)  # Implementar contador futuramente
         for foto_atual in self.pic_hrefs:
@@ -61,12 +77,12 @@ class InstagramBot:
                 driver.find_element_by_class_name('Ypffh').click()
                 campo_comentario = driver.find_element_by_class_name('Ypffh')
                 time.sleep(random.randint(2, 4))
-                self.digite_como_pessoa(random.choice(comentarios), campo_comentario)
-                time.sleep(2)
+                self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
+                time.sleep(random.randint(10, 20))
                 driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
-                time.sleep(random.randint(45, 59))
+                time.sleep(random.randint(367, 603))
             except Exception:
-                time.sleep(2)
+                time.sleep(5)
             numero_de_fotos -= 1
 
     def like_foto(self, like=True):
@@ -76,36 +92,41 @@ class InstagramBot:
 
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
-            time.sleep(2)
             try:
-                time.sleep(random.randint(2, 10))
+                time.sleep(random.randint(4, 10))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
                 time.sleep(random.randint(45, 59))
             except Exception:
-                time.sleep(2)
+                time.sleep(5)
             numero_de_fotos -= 1
 
-    def like_comentar(self, comentarios, like=True):
+    def like_comentar(self, x, y, z, like=True):
         driver = self.driver
         numero_de_fotos = len(self.pic_hrefs)
         estado_atual_like = 'Like' if like else 'Unlike'
+        contador = 1
 
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
-            time.sleep(2)
+            if contador % 10 == 0:
+                try:
+                    time.sleep(random.randint(2, 10))
+                    driver.find_element_by_class_name('Ypffh').click()
+                    campo_comentario = driver.find_element_by_class_name('Ypffh')
+                    time.sleep(random.randint(2, 4))
+                    self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
+                    time.sleep(2)
+                    driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
+                    time.sleep(2)
+                except Exception:
+                    time.sleep(2)
             try:
-                time.sleep(random.randint(2, 10))
-                driver.find_element_by_class_name('Ypffh').click()
-                campo_comentario = driver.find_element_by_class_name('Ypffh')
-                time.sleep(random.randint(2, 4))
-                self.digite_como_pessoa(random.choice(comentarios), campo_comentario)
-                time.sleep(2)
-                driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
-                time.sleep(2)
+                time.sleep(random.randint(4, 10))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
                 time.sleep(random.randint(45, 59))
+                contador += 1
             except Exception:
-                time.sleep(2)
+                time.sleep(5)
             numero_de_fotos -= 1
 
     def limpar_urefs(self):
