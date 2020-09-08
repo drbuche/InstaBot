@@ -5,6 +5,7 @@ import random
 
 
 class InstagramBot:
+    seguidores_perfil = []
     pic_hrefs = []
 
     def __init__(self, username, password):
@@ -50,7 +51,7 @@ class InstagramBot:
         passworword_elem.send_keys(Keys.RETURN)
         time.sleep(6)
 
-    def selecionar_fotos(self, hashtag):
+    def selecionar_fotos_hashtags(self, hashtag):
         driver = self.driver
         driver.get("https://www.instagram.com/explore/tags/" + hashtag + "/")
         time.sleep(2)
@@ -65,6 +66,42 @@ class InstagramBot:
                 [self.pic_hrefs.append(href) for href in hrefs_na_tela if href not in self.pic_hrefs]
             except Exception:
                 continue
+
+    def listar_perfis_do_perfil(self, perfilrandom):
+        driver = self.driver
+        driver.get("https://www.instagram.com/" + perfilrandom + "/")
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//a[@href= \"/" + perfilrandom + "/followers/\"" + "]").click()
+        time.sleep(1)
+        driver.find_element_by_class_name('PZuss').click()
+        for _ in range(1, 10):
+            try:
+                time.sleep(2)
+                hrefs_na_tela = driver.find_elements_by_tag_name('a')
+                hrefs_na_tela = [elem.get_attribute('href') for elem in hrefs_na_tela
+                                 if 'FPmhX notranslate  _0imsa ' in elem.get_attribute('class')]
+                [self.seguidores_perfil.append(href) for href in hrefs_na_tela]
+            except Exception:
+                continue
+
+    def selecionar_fotos_perfil(self):
+        driver = self.driver
+        perfil_do_perfil = random.choice(self.seguidores_perfil)
+        driver.get(perfil_do_perfil)
+        time.sleep(2)
+
+        for _ in range(1, 2):
+            try:
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(2)
+                hrefs_na_tela = driver.find_elements_by_tag_name('a')
+                hrefs_na_tela = [elem.get_attribute('href') for elem in hrefs_na_tela
+                                 if '.com/p/' in elem.get_attribute('href')]
+                [self.pic_hrefs.append(href) for href in hrefs_na_tela
+                 if href not in self.pic_hrefs]
+            except Exception:
+                continue
+        self.seguidores_perfil.remove(perfil_do_perfil)
 
     def comentar_fotos(self, x, y, z):
         driver = self.driver

@@ -27,6 +27,7 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 
 # Utilizando!
 - 1 – Em [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py), coloque as hashtags que deseja realizar a busca dentro da lista 'hashtags'.
+    - Caso prefira realizar o processo em seguidores de um perfil especifico, preencha a lista ‘perfis’ com os perfis que deseja interagir. Isso fara com que você interaja com os 108 últimos seguidores deste perfil.
 - 2 – Coloque os comentários que deseja comentar nas respectivas listas:
 
 	- primeira_palavra: Será sempre o primeiro elemento da sentença.
@@ -39,4 +40,4 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 - 4 – ?????
 - 5 – profit!
 
-*obs: O bot exibira uma mensagem contendo a hashtag atual e a data/hora que inciou o ciclo na referente hashtag.*
+*obs: O bot exibira uma mensagem contendo a hashtag/perfil atual e a data/hora que inciou o ciclo na referente hashtag.*
