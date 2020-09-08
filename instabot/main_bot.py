@@ -6,23 +6,30 @@ from datetime import datetime
 if __name__ == "__main__":
 
     funcao = ''
-    hashtags = ['lolbr','festa', 'gamer', 'rpg']
-    comentarios = ["Show!", "S2 S2!", "Amei!", "STATUS ATUAL: APAIXONADA!"]
+
+    # Hashtags que deseja pesquisar
+    hashtags = ['carros','ragnarok', 'praia', 'freefirebrasil']
+
+    # Combinação de palavras para comentário aleatório -> (a + b) ou (a + c) ou (b + c)
+    primeira_palavra = ['Nossa! ', 'WOW! ', 'Sério? ', 'CARAMBA! ']
+    complemento = ['Que incrível!', 'Que top!', 'Que show!', 'Que TUDO!']
+    emoji = ['💙️', '🥰', '💃', '💥']
 
     username = input('Qual o usuário?')
     password = getpass(prompt='Qual a senha?')
 
     while True:
-        seleciona_funcao = input('Para apenas comentar,digite 1. \nPara apenas dar like, digite 2. '
-                                 '\nPara comentar e dar like, digite 3. \n')
+        seleciona_funcao = input('Para apenas comentar,digite 1 (Leva +- 10min entre comentarios para evitar ban).'
+                                 '\nPara apenas dar like, digite 2. '
+                                 '\nPara comentar e dar like, digite 3 (A cada 10 likes 1 comentario). \n')
         if seleciona_funcao == '1':
-            funcao = 'comentar_fotos(comentarios)'
+            funcao = 'comentar_fotos(primeira_palavra, complemento, emoji)'
             break
         elif seleciona_funcao == '2':
             funcao = 'like_foto()'
             break
         elif seleciona_funcao == '3':
-            funcao = 'like_comentar(comentarios)'
+            funcao = 'like_comentar(primeira_palavra, complemento, emoji)'
             break
         else:
             print('Valor invalido!')

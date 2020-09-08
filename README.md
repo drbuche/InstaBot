@@ -26,9 +26,17 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 
 
 # Utilizando!
-- 1 - Em [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py), coloque as hashtags que deseja realizar a busca dentro da lista hashtags.
-- 2 – Coloque os comentarios que deseja comentar na lista comentarios.
-- 3 - Em [bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/bot.py), no atributo construtor da classe InstagramBot, modifique o self.driver = webdriver.Chrome/Firefox de acordo com o navegador que deseja utilizar (por definição, já esta no Firefox, indico usá-lo).
-- 3 - run
+- 1 – Em [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py), coloque as hashtags que deseja realizar a busca dentro da lista 'hashtags'.
+- 2 – Coloque os comentários que deseja comentar nas respectivas listas:
+
+	- primeira_palavra: Será sempre o primeiro elemento da sentença.
+	- complemento: Pode ser o elemento logo após a 'primeira_palavra' ou ser o primeiro elemento da sentença, com um emoji logo em seguida.
+	- emoji: Emoticon que será sempre o último elemento da sentença. 	
+	- **Estas listas servem para criar frases aleatórias, unindo elementos distintos de forma randomica para cada comentário.**
+		        	
+- 3 – Em [bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/bot.py), no atributo construtor da classe InstagramBot, modifique o self.driver = webdriver.Chrome/Firefox de acordo com o navegador que deseja utilizar (por definição, já esta no Firefox, indico usá-lo).
+- 3 – run
 - 4 – ?????
 - 5 – profit!
+
+*obs: O bot exibira uma mensagem contendo a hashtag atual e a data/hora que inciou o ciclo na referente hashtag.*
