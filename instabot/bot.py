@@ -89,6 +89,7 @@ class InstagramBot:
         perfil_do_perfil = random.choice(self.seguidores_perfil)
         driver.get(perfil_do_perfil)
         time.sleep(2)
+        limite_fotos = 0
 
         for _ in range(1, 2):
             try:
@@ -97,8 +98,10 @@ class InstagramBot:
                 hrefs_na_tela = driver.find_elements_by_tag_name('a')
                 hrefs_na_tela = [elem.get_attribute('href') for elem in hrefs_na_tela
                                  if '.com/p/' in elem.get_attribute('href')]
-                [self.pic_hrefs.append(href) for href in hrefs_na_tela
-                 if href not in self.pic_hrefs]
+                for href in hrefs_na_tela:
+                    if href not in self.pic_hrefs and limite_fotos < 6:
+                        self.pic_hrefs.append(href)
+                        limite_fotos += 1
             except Exception:
                 continue
         self.seguidores_perfil.remove(perfil_do_perfil)

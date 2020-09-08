@@ -35,7 +35,7 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, usernam
             sys.exit()
         try:
             tag = random.choice(perfis)
-            print(f'Perfil atual: #{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print(f'Perfil atual: @{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             instagram.listar_perfis_do_perfil(tag)
             while len(instagram.seguidores_perfil) != 0:
                 time.sleep(20)
