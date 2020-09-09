@@ -2,15 +2,18 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import random
-
+import sys
 
 class InstagramBot:
     seguidores_perfil = []
     pic_hrefs = []
+    numero_perfis_atual = 0
+    numero_fotos = 0
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, stdout):
         self.username = username
         self.password = password
+        self.stdout = stdout
         self.driver = webdriver.Firefox()  # Navegador que deseja utilizar
 
     @staticmethod
@@ -34,6 +37,17 @@ class InstagramBot:
             return random.choice(y) + random.choice(z)
         else:
             return random.choice(x) + random.choice(z)
+
+    def contador_stdout(self):
+        if self.stdout == '1':
+            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_fotos} fotos.")
+            sys.stdout.flush()
+            time.sleep(0.5)
+        elif self.stdout == '2':
+            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_perfis_atual} perfis"
+                             f" e um total de {self.numero_fotos} fotos.")
+            sys.stdout.flush()
+            time.sleep(0.5)
 
     def close_browser(self):
         self.driver.close()
@@ -94,16 +108,18 @@ class InstagramBot:
         driver.get(perfil_do_perfil)
         time.sleep(2)
         limite_fotos = 0
+        max_fotos = random.randrange(3, 7)
 
-        for _ in range(1, 2):
+        for _ in range(1, 2):  # Esse for existe para facilitar novas funcionalidades
             try:
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(2)
                 hrefs_na_tela = driver.find_elements_by_tag_name('a')
                 hrefs_na_tela = [elem.get_attribute('href') for elem in hrefs_na_tela
                                  if '.com/p/' in elem.get_attribute('href')]
+                self.numero_perfis_atual += 1
                 for href in hrefs_na_tela:
-                    if href not in self.pic_hrefs and limite_fotos < 6:
+                    if href not in self.pic_hrefs and limite_fotos < max_fotos:
                         self.pic_hrefs.append(href)
                         limite_fotos += 1
             except Exception:
@@ -124,6 +140,8 @@ class InstagramBot:
                 self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
                 time.sleep(random.randint(10, 20))
                 driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
+                self.numero_fotos += 1
+                self.contador_stdout()
                 time.sleep(random.randint(367, 603))
             except Exception:
                 time.sleep(5)
@@ -139,6 +157,8 @@ class InstagramBot:
             try:
                 time.sleep(random.randint(4, 10))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
+                self.numero_fotos += 1
+                self.contador_stdout()
                 time.sleep(random.randint(45, 59))
             except Exception:
                 time.sleep(5)
@@ -167,6 +187,8 @@ class InstagramBot:
             try:
                 time.sleep(random.randint(4, 10))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
+                self.numero_fotos += 1
+                self.contador_stdout()
                 time.sleep(random.randint(45, 59))
                 contador += 1
             except Exception:

@@ -1,10 +1,10 @@
 from datetime import datetime
-from instabot.bot import *
+from bot import *
 import sys
 
 
-def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password):
-    instagram = InstagramBot(username, password)
+def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot):
+    instagram = InstagramBot(username, password, modo_bot)
     instagram.login()
     while True:
         if len(hashtags) == 0:
@@ -13,9 +13,13 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, use
             sys.exit()
         try:
             tag = random.choice(hashtags)
-            print(f'Hashtag atual: #{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print('--------------------------------------------------------------------------------')
+            print(f'\nHashtag atual: #{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
             instagram.selecionar_fotos_hashtags(tag)
+            print(f'Número de hashtags coletados: {len(instagram.pic_hrefs)}.\n')
             eval('instagram.' + tipo_busca)
+            print(f'\nHashtag: #{tag} finalizada em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print('--------------------------------------------------------------------------------\n')
             hashtags.remove(tag)
             instagram.limpar_urefs()
         except Exception:
@@ -25,8 +29,8 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, use
             instagram.login()
 
 
-def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, username, password):
-    instagram = InstagramBot(username, password)
+def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot):
+    instagram = InstagramBot(username, password, modo_bot)
     instagram.login()
     while True:
         if len(perfis) == 0:
@@ -35,13 +39,17 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, usernam
             sys.exit()
         try:
             tag = random.choice(perfis)
-            print(f'Perfil atual: @{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print('--------------------------------------------------------------------------------')
+            print(f'\nPerfil atual: @{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             instagram.listar_perfis_do_perfil(tag)
+            print(f'Número de perfis coletados: {len(instagram.seguidores_perfil)}.\n')
             while len(instagram.seguidores_perfil) != 0:
                 time.sleep(20)
                 instagram.selecionar_fotos_perfil()
                 eval('instagram.' + tipo_busca)
                 instagram.limpar_urefs()
+            print(f'\nPerfil: @{tag} finalizado em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print('--------------------------------------------------------------------------------\n')
             perfis.remove(tag)
         except Exception:
             instagram.close_browser()
