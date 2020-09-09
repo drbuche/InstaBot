@@ -26,8 +26,9 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 
 
 # Utilizando!
-- 1 – Em [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py), coloque as hashtags que deseja realizar a busca dentro da lista 'hashtags'.
-    - Caso prefira realizar o processo em seguidores de um perfil especifico, preencha a lista ‘perfis’ com os perfis que deseja interagir. Isso fara com que você interaja com os 120 últimos seguidores deste perfil.
+- 1 – Em [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py), coloque as referências na lista.
+    - Caso a busca seja feita for hashtags, coloque as hashtags que deseja realizar a busca dentro da lista 'hashtags'.
+    - Caso prefira realizar o processo em seguidores de um perfil especifico, preencha a lista ‘perfis’ com os perfis que deseja interagir. Isso fará com que você interaja com os 120 (em média) últimos seguidores deste perfil.
 - 2 – Coloque os comentários que deseja comentar nas respectivas listas:
 
 	- primeira_palavra: Será sempre o primeiro elemento da sentença.
@@ -40,4 +41,10 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 - 4 – ?????
 - 5 – profit!
 
-*obs: O bot exibira uma mensagem contendo a hashtag/perfil atual e a data/hora que inciou o ciclo na referente hashtag.*
+# Observações:
+- **O bot exibira uma mensagem contendo a hashtag/perfil atual e a data/hora que inciou o ciclo em cada referência. Também atualizará o número de perfis/hashtags totais que já foram interagidos.**
+- **Modo apenas like: Da like em 1 foto a cada 1-2 min.**
+- **Modo apenas comentar: Comenta 1 foto a cada 6-10min**
+- **Modo like e comentar:**
+	- *No modo hashtags – Da like a cada 1-2 min e comenta 1x a cada 10 fotos.*
+	- *No modo perfil – Comenta na primeira foto do perfil e da like em 3-6 fotos.*
