@@ -76,11 +76,15 @@ class InstagramBot:
         driver.find_element_by_class_name('PZuss').click()
         for _ in range(1, 10):
             try:
-                time.sleep(2)
+                driver.execute_script('''
+                    var fDialog = document.querySelector('div[role="dialog"] .isgrP');
+                    fDialog.scrollTop = fDialog.scrollHeight
+                ''')
+                time.sleep(4)
                 hrefs_na_tela = driver.find_elements_by_tag_name('a')
                 hrefs_na_tela = [elem.get_attribute('href') for elem in hrefs_na_tela
                                  if 'FPmhX notranslate  _0imsa ' in elem.get_attribute('class')]
-                [self.seguidores_perfil.append(href) for href in hrefs_na_tela]
+                [self.seguidores_perfil.append(href) for href in hrefs_na_tela if href not in self.seguidores_perfil]
             except Exception:
                 continue
 
@@ -144,7 +148,7 @@ class InstagramBot:
         driver = self.driver
         numero_de_fotos = len(self.pic_hrefs)
         estado_atual_like = 'Like' if like else 'Unlike'
-        contador = 1
+        contador = 10
 
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
@@ -157,7 +161,7 @@ class InstagramBot:
                     self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
                     time.sleep(2)
                     driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
-                    time.sleep(2)
+                    time.sleep(random.randint(10, 20))
                 except Exception:
                     time.sleep(2)
             try:

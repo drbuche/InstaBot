@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     # Hashtags que deseja pesquisar
     hashtags = ['emcasa','minecraftbrasil', 'gamerbrasil', 'freefirebrasil']
-    perfis = ['otakupt_oficial', 'leagueoflegendsbrasil', 'minecraft.br']
+    perfis = ['otakupt_oficial', 'leagueoflegendsbrasil', 'animes_brasil.1']
 
     # Combinação de palavras para comentário aleatório -> (a + b) ou (a + c) ou (b + c)
     primeira_palavra = ['Nossa! ', 'WOW! ', 'Sério isso? ', 'CARAMBA! ']
