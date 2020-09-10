@@ -1,6 +1,5 @@
 from datetime import datetime
 from bot import *
-import sys
 
 
 def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot):
@@ -14,7 +13,7 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, use
         try:
             tag = random.choice(hashtags)
             print('--------------------------------------------------------------------------------')
-            print(f'\nHashtag atual: #{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
+            print(f'\nHashtag: #{tag} iniciada em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
             instagram.selecionar_fotos_hashtags(tag)
             print(f'Número de hashtags coletados: {len(instagram.pic_hrefs)}.\n')
             eval('instagram.' + tipo_busca)
@@ -25,7 +24,6 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, use
         except Exception:
             instagram.close_browser()
             time.sleep(60)
-            instagram = InstagramBot(username, password)
             instagram.login()
 
 
@@ -35,12 +33,12 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, usernam
     while True:
         if len(perfis) == 0:
             instagram.close_browser()
-            print('A lista de hashtags acabou!')
+            print('A lista de @perfis acabou!')
             sys.exit()
         try:
             tag = random.choice(perfis)
             print('--------------------------------------------------------------------------------')
-            print(f'\nPerfil atual: @{tag} em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print(f'\nPerfil: @{tag} iniciada em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             instagram.listar_perfis_do_perfil(tag)
             print(f'Número de perfis coletados: {len(instagram.seguidores_perfil)}.\n')
             while len(instagram.seguidores_perfil) != 0:
@@ -54,5 +52,4 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, usernam
         except Exception:
             instagram.close_browser()
             time.sleep(60)
-            instagram = InstagramBot(username, password)
             instagram.login()
