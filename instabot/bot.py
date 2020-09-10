@@ -128,7 +128,6 @@ class InstagramBot:
 
     def comentar_fotos(self, x, y, z):
         driver = self.driver
-        numero_de_fotos = len(self.pic_hrefs)  # Implementar contador futuramente
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
             time.sleep(2)
@@ -145,11 +144,9 @@ class InstagramBot:
                 time.sleep(random.randint(367, 603))
             except Exception:
                 time.sleep(5)
-            numero_de_fotos -= 1
 
     def like_foto(self, like=True):
         driver = self.driver
-        numero_de_fotos = len(self.pic_hrefs)
         estado_atual_like = 'Like' if like else 'Unlike'
 
         for foto_atual in self.pic_hrefs:
@@ -162,11 +159,9 @@ class InstagramBot:
                 time.sleep(random.randint(45, 59))
             except Exception:
                 time.sleep(5)
-            numero_de_fotos -= 1
 
     def like_comentar(self, x, y, z, like=True):
         driver = self.driver
-        numero_de_fotos = len(self.pic_hrefs)
         estado_atual_like = 'Like' if like else 'Unlike'
         contador = 10
 
@@ -193,7 +188,6 @@ class InstagramBot:
                 contador += 1
             except Exception:
                 time.sleep(5)
-            numero_de_fotos -= 1
 
     def limpar_urefs(self):
         self.pic_hrefs.clear()
