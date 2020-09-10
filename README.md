@@ -34,7 +34,7 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 	- primeira_palavra: Será sempre o primeiro elemento da sentença.
 	- complemento: Pode ser o elemento logo após a 'primeira_palavra' ou ser o primeiro elemento da sentença, com um emoji logo em seguida.
 	- emoji: Emoticon que será sempre o último elemento da sentença. 	
-	- **Estas listas servem para criar frases aleatórias, unindo elementos distintos de forma randomica para cada comentário.**
+	- **Estas listas servem para criar frases aleatórias, unindo elementos distintos de forma randomica para cada comentário. Quanto mais palavras em cada grupo melhor!**
 		        	
 - 3 – Em [bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/bot.py), no atributo construtor da classe InstagramBot, modifique o self.driver = webdriver.Chrome/Firefox de acordo com o navegador que deseja utilizar (por definição, já esta no Firefox, indico usá-lo).
 - 3 – run
@@ -47,4 +47,5 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 - **Modo apenas comentar: Comenta 1 foto a cada 6-10min**
 - **Modo like e comentar:**
 	- *No modo hashtags – Da like a cada 1-2 min e comenta 1x a cada 10 fotos.*
-	- *No modo perfil – Comenta na primeira foto do perfil e da like em 3-6 fotos.*
+	- *No modo perfil – Comenta a cada 10 fotos e da like em 3-6 fotos de cada perfil.*
+- **O tempo entre os comentários no modo like+comentar ainda está em teste.**

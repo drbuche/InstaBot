@@ -9,6 +9,7 @@ class InstagramBot:
     pic_hrefs = []
     numero_perfis_atual = 0
     numero_fotos = 0
+    contador_para_comentar = 1
 
     def __init__(self, username, password, stdout):
         self.username = username
@@ -163,11 +164,10 @@ class InstagramBot:
     def like_comentar(self, x, y, z, like=True):
         driver = self.driver
         estado_atual_like = 'Like' if like else 'Unlike'
-        contador = 10
 
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
-            if contador % 10 == 0:
+            if self.contador_para_comentar % 10 == 0:
                 try:
                     time.sleep(random.randint(2, 10))
                     driver.find_element_by_class_name('Ypffh').click()
@@ -185,7 +185,7 @@ class InstagramBot:
                 self.numero_fotos += 1
                 self.contador_stdout()
                 time.sleep(random.randint(45, 59))
-                contador += 1
+                self.contador_para_comentar += 1
             except Exception:
                 time.sleep(5)
 
