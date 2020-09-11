@@ -19,6 +19,7 @@ pip install --upgrade pip
 pip install selenium
 ```
   - Baixe o Webdriver referente ao navegador: [Chrome](https://chromedriver.chromium.org/downloads) ou [Firefox](https://github.com/mozilla/geckodriver/releases)
+    - Certifique-se de que a versão do Webdriver é compatível com a do seu navegador!
   - Mova o Webdriver para:
    ```sh
 sudo mv ~/local_do_driver/driver /usr/local/bin
@@ -36,7 +37,7 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 	- emoji: Emoticon que será sempre o último elemento da sentença. 	
 	- **Estas listas servem para criar frases aleatórias, unindo elementos distintos de forma randomica para cada comentário. Quanto mais palavras em cada grupo melhor!**
 		        	
-- 3 – Em [bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/bot.py), no atributo construtor da classe InstagramBot, modifique o self.driver = webdriver.Chrome/Firefox de acordo com o navegador que deseja utilizar (por definição, já esta no Firefox, indico usá-lo).
+- 3 – Em [bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/bot.py), no atributo construtor da classe InstagramBot, modifique o self.driver = webdriver.Chrome/Firefox de acordo com o navegador que deseja utilizar (por definição, já esta no Firefox).
 - 3 – run
 - 4 – ?????
 - 5 – profit!
