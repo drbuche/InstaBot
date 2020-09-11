@@ -4,18 +4,33 @@ import time
 import random
 import sys
 
+
 class InstagramBot:
     seguidores_perfil = []
     pic_hrefs = []
     numero_perfis_atual = 0
     numero_fotos = 0
     contador_para_comentar = 1
+    like = ''
+    post = ''
+    unlike = ''
 
-    def __init__(self, username, password, stdout):
+    def __init__(self, username, password, stdout, linguagem):
         self.username = username
         self.password = password
         self.stdout = stdout
         self.driver = webdriver.Firefox()  # Navegador que deseja utilizar
+        self.linguagem = linguagem
+        if linguagem == '1':
+            self.like = 'Like'
+            self.post = 'Post'
+            self.unlike = 'Unlike'
+        else:
+            self.like = 'Curtir'
+            self.post = 'Publicar'
+            self.unlike = 'Descurtir'
+
+
 
     @staticmethod
     def digite_como_pessoa(frase, onde_digitar):
@@ -139,7 +154,7 @@ class InstagramBot:
                 time.sleep(random.randint(2, 4))
                 self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
                 time.sleep(random.randint(10, 20))
-                driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
+                driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
                 self.numero_fotos += 1
                 self.contador_stdout()
                 time.sleep(random.randint(367, 603))
@@ -148,7 +163,7 @@ class InstagramBot:
 
     def like_foto(self, like=True):
         driver = self.driver
-        estado_atual_like = 'Like' if like else 'Unlike'
+        estado_atual_like = self.like if like else self.unlike
 
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
@@ -163,7 +178,7 @@ class InstagramBot:
 
     def like_comentar(self, x, y, z, like=True):
         driver = self.driver
-        estado_atual_like = 'Like' if like else 'Unlike'
+        estado_atual_like = self.like if like else self.unlike
 
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
@@ -175,7 +190,7 @@ class InstagramBot:
                     time.sleep(random.randint(2, 4))
                     self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
                     time.sleep(2)
-                    driver.find_element_by_xpath("//button[contains(text(),'Post')]").click()
+                    driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
                     time.sleep(random.randint(10, 20))
                 except Exception:
                     time.sleep(2)

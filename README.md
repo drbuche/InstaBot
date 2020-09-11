@@ -43,6 +43,8 @@ sudo mv ~/local_do_driver/driver /usr/local/bin
 - 5 – profit!
 
 # Observações:
+- **Durante a execução você terá a opção de selecionar a linguagem do navegador.**
+    - **Certifique-se de que escolheu a opção de linguagem compatível com seu navegador**
 - **O bot exibira uma mensagem contendo a hashtag/perfil atual e a data/hora que inciou o ciclo em cada referência. Também atualizará o número de perfis/hashtags totais que já foram interagidos.**
 - **Modo apenas like: Da like em 1 foto a cada 1-2 min.**
 - **Modo apenas comentar: Comenta 1 foto a cada 6-10min**

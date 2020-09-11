@@ -23,11 +23,13 @@ if __name__ == "__main__":
     print('\n--------------------------------------------------------------------------------\n')
     modo_bot = hash_seguidores()
     print('\n--------------------------------------------------------------------------------\n')
+    linguagem = linguagem()
+    print('\n--------------------------------------------------------------------------------\n')
 
     if modo_bot == '1':
-        com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot)
+        com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot, linguagem)
     elif modo_bot == '2':
-        com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot)
+        com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot, linguagem)
 
 
 

@@ -10,7 +10,7 @@ def bot_fazer():
         elif seleciona_tarefa == '3':
             return 'like_comentar(primeira_palavra, complemento, emoji)'
         else:
-            print('Valor invalido!')
+            print('Valor inválido!')
 
 
 def hash_seguidores():
@@ -20,4 +20,15 @@ def hash_seguidores():
         if seleciona_tarefa == '1' or seleciona_tarefa == '2':
             return seleciona_tarefa
         else:
-            print('Valor invalido!')
+            print('Valor inválido!')
+
+
+def linguagem():
+    while True:
+        lingua = input('Qual o idioma do seu navegador?'
+                          '\nDigite 1 para Inglês\n'
+                          'Digite 2 para Português\n')
+        if lingua == '1' or lingua == '2':
+            return lingua
+        else:
+            print('Valor inválido!')

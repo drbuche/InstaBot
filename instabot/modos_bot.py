@@ -2,8 +2,8 @@ from datetime import datetime
 from bot import *
 
 
-def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot):
-    instagram = InstagramBot(username, password, modo_bot)
+def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot, linguagem):
+    instagram = InstagramBot(username, password, modo_bot, linguagem)
     instagram.login()
     while True:
         if len(hashtags) == 0:
@@ -27,8 +27,9 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, use
             instagram.login()
 
 
-def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot):
-    instagram = InstagramBot(username, password, modo_bot)
+def com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot, linguagem):
+    instagram = InstagramBot(username, password, modo_bot, linguagem)
+    time.sleep(5)
     instagram.login()
     while True:
         if len(perfis) == 0:
