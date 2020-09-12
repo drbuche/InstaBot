@@ -192,11 +192,13 @@ class InstagramBot:
 
     def contador_stdout(self):
         if self.stdout == '1':
-            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_fotos} fotos.")
+            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_fotos} fotos. "
+                             f"Faltam {len(self.pic_hrefs) - self.numero_fotos} fotos desta #.")
             sys.stdout.flush()
             time.sleep(0.5)
         elif self.stdout == '2':
-            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_perfis_atual} perfis"
+            sys.stdout.write(f"\rFaltam {len(self.seguidores_perfil)} perfis para terminar os seguidores do @ atual."
+                             f"Até o momento, interagimos com {self.numero_perfis_atual} perfis"
                              f" e um total de {self.numero_fotos} fotos.")
             sys.stdout.flush()
             time.sleep(0.5)

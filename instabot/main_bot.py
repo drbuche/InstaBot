@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 from modos_bot import *
-from getpass import getpass
-from selecionar_tipo_busca import *
+from bot_inputs import *
 
 if __name__ == "__main__":
 
     # Hashtags que deseja pesquisar
-    hashtags = ['hashtag1','hashtag2', 'hashtag3',]
+    hashtags = ['hashtag1', 'hashtag2', 'hashtag3', ]
     perfis = ['perfil1', 'perfil2', 'perfil3']
 
     # Combinação de palavras para comentário aleatório -> (a + b) ou (a + c) ou (b + c)
@@ -15,10 +14,8 @@ if __name__ == "__main__":
     emoji = ['💙️', '🥰', '🔥', '💥']
 
     print('--------------------------------------------------------------------------------\n')
-    username = input('Qual o usuário?\n')
-    password = getpass(prompt='Qual a senha?')
+    username, password = login_pass()
     print('\n--------------------------------------------------------------------------------\n')
-
     tipo_busca = bot_fazer()
     print('\n--------------------------------------------------------------------------------\n')
     modo_bot = hash_seguidores()
@@ -27,9 +24,11 @@ if __name__ == "__main__":
     print('\n--------------------------------------------------------------------------------\n')
 
     if modo_bot == '1':
-        com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot, linguagem)
+        com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
+                     emoji, username, password, modo_bot, linguagem)
     elif modo_bot == '2':
-        com_perfil(perfis, tipo_busca, primeira_palavra, complemento, emoji, username, password, modo_bot, linguagem)
+        com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
+                   emoji, username, password, modo_bot, linguagem)
 
 
 

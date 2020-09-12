@@ -1,8 +1,17 @@
+from getpass import getpass
+
+
+def login_pass():
+    username = input('Qual o usuário?\n')
+    password = getpass(prompt='\nQual a senha?')
+    return username, password
+
+
 def bot_fazer():
     while True:
-        seleciona_tarefa = input('Para apenas comentar,digite 1 (Leva +- 10min entre comentarios para evitar ban).'
-                                 '\nPara apenas dar like, digite 2. '
-                                 '\nPara comentar e dar like, digite 3 (A cada 10 likes 1 comentario). \n')
+        seleciona_tarefa = input('Para apenas comentar,digite 1 (Leva de 6-10 min entre comentários).'
+                                 '\nPara apenas dar like, digite 2 (1 like a cada 1-2 min). '
+                                 '\nPara comentar e dar like, digite 3 (A cada 10 likes 1 comentário). \n')
         if seleciona_tarefa == '1':
             return 'comentar_fotos(primeira_palavra, complemento, emoji)'
         elif seleciona_tarefa == '2':
