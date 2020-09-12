@@ -48,7 +48,7 @@ sudo mv ~/local_do_driver/driver /usr/bin
 
 ```
 
-   - Abra a a pasta que contenha o modulo main_bot.py.
+   - Abra a pasta que contenha o modulo [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py).
    - Abra o terminal dentro desta pasta, execute o seguinte comando:
    ```sh
 sudo chmod +x main_bot.py 
@@ -91,4 +91,6 @@ sudo chmod +x main_bot.py
 - **Modo like e comentar:**
 	- *No modo hashtags – Da like a cada 1-2 min e comenta 1x a cada 10 fotos.*
 	- *No modo perfil – Comenta a cada 10 fotos e da like em 3-6 fotos de cada perfil.*
+- **Use bot com bom senso, como se ele imitasse uma pessoa real. Sugiro rodar entre as 7h da manhã até as 00 horas, em um período de 3-8 horas por dia, deixe alguns dias sem utilizar, etc...**
 - **O tempo entre os comentários no modo like+comentar ainda está em teste.**
+- **Caso tenha o erro 'Failed to Load.' e não consiga carregar fotos e perfis, tente apagar o arquivo 'geckodriver.log' dentro da pasta instabot, ele é gerado automaticamente ao executar o aplicativo. Além disso, limpe os cookies dos navegadores e certifique-se que não possui outros dispositivos acessando sua conta ao mesmo tempo pelo navegador.** 
