@@ -1,11 +1,11 @@
 
 ![N|Solid](https://i.imgur.com/33xjIQf.jpg)
 
-# InstaBot
+# InstaBot - Selenium
 
-##### Bot para automatizar curtidas e comentários! 
+Bot para automatizar curtidas e comentários usando Selenium! 
 
-Pretendo adicionar mais funcionalidades e construir uma interface gráfica futuramente!
+*Pretendo adicionar mais funcionalidades e construir uma interface gráfica futuramente!*
 
 
 
@@ -13,6 +13,7 @@ Pretendo adicionar mais funcionalidades e construir uma interface gráfica futur
 
 *\*Os passos com 'ou' representam possíveis soluções para problemas que possam vir a ocorrer, caso a primeira opção não funcione.*
 
+## Linux:
    - Atualize o sistema.
    ```sh
 sudo apt-get update 
@@ -48,11 +49,37 @@ sudo mv ~/local_do_driver/driver /usr/bin
 
 ```
 
-   - Abra a pasta que contenha o modulo [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py).
-   - Abra o terminal dentro desta pasta, execute o seguinte comando:
+   - Abra a pasta que contém o modulo [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py).
+   - Abra o terminal dentro desta pasta e execute o seguinte comando:
    ```sh
 sudo chmod +x main_bot.py 
 ```
+
+
+## Windows:
+
+- Baixe o [Python](https://www.python.org/downloads/) e instale (lembre-se de marcar a opção Path).
+   
+- Atualize o pip no prompt com o comando:
+ ```sh
+-m pip install --upgrade pip
+
+ou 
+
+pip install --upgrade pip 
+```
+
+- Instale o Selenium com o comando:
+```sh
+pip install selenium
+```
+
+- Baixe o Webdriver referente ao navegador: [Chrome](https://chromedriver.chromium.org/downloads) ou [Firefox](https://github.com/mozilla/geckodriver/releases)
+    - Certifique-se de que a versão do Webdriver é compatível com a do seu navegador!
+    - Caso tenha problema com algum navegador, tente com outro.
+    - Mova o Webdriver (apenas o driver e não a pasta!) para a pasta que contém o modulo [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py)
+
+
 
 
 # Utilizando!
@@ -70,14 +97,26 @@ sudo chmod +x main_bot.py
 
 - 4 – Abra o terminal dentro da pasta que contenha o arquivo [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py) e use o comando:
  
+#####Linux:
 ```sh
 ./main_bot.py
+```
+
+#####Windows:
+```sh
+cd C:\Users\etc\etc\até_o_local_do_main_bot.py
+
+python main_bot.py
 ```
 
 - 4.5 Caso tenha algum problema com a execução do python, altere a primeira linha do modulo [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py) para:
     
  ```sh
 #!/usr/bin/env python 
+
+ou
+
+#!/usr/bin/env python3 
 ```
 - 5 – ?????
 - 6 – profit!
