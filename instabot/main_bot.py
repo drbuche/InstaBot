@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from modos_bot import *
 from getpass import getpass
 from selecionar_tipo_busca import *
@@ -6,8 +6,8 @@ from selecionar_tipo_busca import *
 if __name__ == "__main__":
 
     # Hashtags que deseja pesquisar
-    hashtags = ['emcasa','minecraftbrasil', 'gamerbrasil',]
-    perfis = ['freefirebrasil', 'leagueoflegendsbrasil', 'animebrasi']
+    hashtags = ['hashtag1','hashtag2', 'hashtag3',]
+    perfis = ['perfil1', 'perfil2', 'perfil3']
 
     # Combinação de palavras para comentário aleatório -> (a + b) ou (a + c) ou (b + c)
     primeira_palavra = ['Nossa! ', 'WOW! ', 'Sério isso? ', 'CARAMBA! ']

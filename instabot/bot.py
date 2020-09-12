@@ -19,7 +19,7 @@ class InstagramBot:
         self.username = username
         self.password = password
         self.stdout = stdout
-        self.driver = webdriver.Firefox()  # Navegador que deseja utilizar
+        self.driver = webdriver.Chrome()  # Navegador que deseja utilizar
         self.linguagem = linguagem
         if linguagem == '1':
             self.like = 'Like'
@@ -53,20 +53,6 @@ class InstagramBot:
             return random.choice(y) + random.choice(z)
         else:
             return random.choice(x) + random.choice(z)
-
-    def contador_stdout(self):
-        if self.stdout == '1':
-            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_fotos} fotos.")
-            sys.stdout.flush()
-            time.sleep(0.5)
-        elif self.stdout == '2':
-            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_perfis_atual} perfis"
-                             f" e um total de {self.numero_fotos} fotos.")
-            sys.stdout.flush()
-            time.sleep(0.5)
-
-    def close_browser(self):
-        self.driver.close()
 
     def login(self):
         driver = self.driver
@@ -204,5 +190,19 @@ class InstagramBot:
             except Exception:
                 time.sleep(5)
 
+    def contador_stdout(self):
+        if self.stdout == '1':
+            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_fotos} fotos.")
+            sys.stdout.flush()
+            time.sleep(0.5)
+        elif self.stdout == '2':
+            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_perfis_atual} perfis"
+                             f" e um total de {self.numero_fotos} fotos.")
+            sys.stdout.flush()
+            time.sleep(0.5)
+
     def limpar_urefs(self):
         self.pic_hrefs.clear()
+
+    def close_browser(self):
+        self.driver.close()
