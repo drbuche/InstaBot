@@ -15,7 +15,15 @@ Bot para automatizar curtidas e comentários usando Selenium e Scrapy!
 
 *Pretendo adicionar mais funcionalidades e construir uma interface gráfica futuramente!*
 
-
+# Sumário:
+    
+   - [Preparando o ambiente](#preparando-o-ambiente)
+        - [Linux](#linux)       
+        - [Windows](#windows)
+        
+   - [Utilizando!](#utilizando)
+   
+   - [Observações](#observações)
 
 # Preparando o ambiente:
 

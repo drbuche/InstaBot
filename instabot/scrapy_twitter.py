@@ -10,8 +10,8 @@ class TwitterScrapy(scrapy.Spider):
 
         hashtags_trends_response = response.xpath('//body//div//ol//li//a/text()').getall()
 
-        for loop in range(0, 5):
-            hashtags_trend_bruto = hashtags_trends_response[loop].replace('#', '')
+        for loop in range(5):
+            hashtags_trend_bruto = hashtags_trends_response[loop].replace('#', '').replace(' ', '')
             hashtags_trend = "".join(hashtags_trend_bruto)
             self.hashtags_dia_lista.append(hashtags_trend)
             yield {

@@ -30,8 +30,6 @@ class InstagramBot:
             self.post = 'Publicar'
             self.unlike = 'Descurtir'
 
-
-
     @staticmethod
     def digite_como_pessoa(frase, onde_digitar):
         for letra in frase:
@@ -215,6 +213,11 @@ class InstagramBot:
 
     def limpar_urefs(self):
         self.pic_hrefs.clear()
+
+    def deu_ruim(self):
+        self.driver.close()
+        print('Algo está errado! Por segurança, o programa foi finalizado ')
+        sys.exit()
 
     def close_browser(self):
         self.driver.close()
