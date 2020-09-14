@@ -15,11 +15,11 @@ class InstagramBot:
     post = ''
     unlike = ''
 
-    def __init__(self, username, password, stdout, linguagem):
+    def __init__(self, username, password, stdout, linguagem, navegador):
         self.username = username
         self.password = password
         self.stdout = stdout
-        self.driver = webdriver.Chrome()  # Navegador que deseja utilizar
+        self.driver = eval(navegador)
         self.linguagem = linguagem
         if linguagem == '1':
             self.like = 'Like'
@@ -190,18 +190,28 @@ class InstagramBot:
             except Exception:
                 time.sleep(5)
 
-    def contador_stdout(self):
+    def tabela_stdout(self):
         if self.stdout == '1':
-            sys.stdout.write(f"\rAté o momento, interagimos com {self.numero_fotos} fotos. "
-                             f"Faltam {len(self.pic_hrefs) - self.numero_fotos} fotos desta #.")
-            sys.stdout.flush()
-            time.sleep(0.5)
+            print('----------------------------------------')
+            print('|Nº - Fotos Faltando |Nº - Fotos Atual | ')
         elif self.stdout == '2':
-            sys.stdout.write(f"\rFaltam {len(self.seguidores_perfil)} perfis para terminar os seguidores do @ atual."
-                             f"Até o momento, interagimos com {self.numero_perfis_atual} perfis"
-                             f" e um total de {self.numero_fotos} fotos.")
-            sys.stdout.flush()
-            time.sleep(0.5)
+            print('-------------------------------------------------------------------')
+            print('|Nº - Perfis Faltando | Nº - Perfis Visitados | Nº - Fotos Atual  |')
+
+    def contador_stdout(self):
+        for _ in range(150):
+            if self.stdout == '1':
+                sys.stdout.write(f"\r         {len(self.pic_hrefs) - self.numero_fotos}          |"
+                                 f"        {self.numero_fotos}      |")
+                sys.stdout.flush()
+                time.sleep(0.5)
+            elif self.stdout == '2':
+                sys.stdout.write(
+                    f"\r           {len(self.seguidores_perfil)}         |"
+                    f"          {self.numero_perfis_atual}          |"
+                    f"        {self.numero_fotos}        | ")
+                sys.stdout.flush()
+                time.sleep(0.5)
 
     def limpar_urefs(self):
         self.pic_hrefs.clear()

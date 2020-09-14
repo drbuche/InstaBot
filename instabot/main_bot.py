@@ -14,21 +14,27 @@ if __name__ == "__main__":
     emoji = ['💙️', '🥰', '🔥', '💥']
 
     print('--------------------------------------------------------------------------------\n')
+    navegador = webdriver()
+    print('--------------------------------------------------------------------------------\n')
     username, password = login_pass()
     print('\n--------------------------------------------------------------------------------\n')
     tipo_busca = bot_fazer()
     print('\n--------------------------------------------------------------------------------\n')
     modo_bot = hash_seguidores()
+    if modo_bot == '1':
+        print('\n--------------------------------------------------------------------------------\n')
+        hash_local_trends(hashtags)
+        print('\n--------------------------------------------------------------------------------\n')
     print('\n--------------------------------------------------------------------------------\n')
     linguagem = linguagem()
     print('\n--------------------------------------------------------------------------------\n')
 
     if modo_bot == '1':
         com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
-                     emoji, username, password, modo_bot, linguagem)
+                     emoji, username, password, modo_bot, linguagem, navegador)
     elif modo_bot == '2':
         com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
-                   emoji, username, password, modo_bot, linguagem)
+                   emoji, username, password, modo_bot, linguagem, navegador)
 
 
 
