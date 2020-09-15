@@ -152,7 +152,7 @@ class InstagramBot:
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
             try:
-                time.sleep(random.randint(4, 10))
+                time.sleep(random.randint(6, 12))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
                 self.numero_fotos += 1
                 self.contador_stdout()
@@ -174,14 +174,19 @@ class InstagramBot:
                     time.sleep(random.randint(2, 4))
                     try:
                         self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
-                    except:
+                    except Exception:
+                        pass
+                    try:
                         time.sleep(2)
                         driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
-                    time.sleep(random.randint(10, 20))
+                        time.sleep(random.randint(10, 20))
+                    except:
+                        self.contador_para_comentar -= 1
+                        pass
                 except Exception:
                     time.sleep(2)
             try:
-                time.sleep(random.randint(4, 10))
+                time.sleep(random.randint(6, 12))
                 self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
                 self.numero_fotos += 1
                 self.contador_stdout()
