@@ -104,6 +104,19 @@ pip install selenium
 ```sh
 pip install scrapy
 ```
+- Caso tenha problemas na instalação do Scrapy, você deve baixar o [Anaconda](https://www.anaconda.com/products/individual).
+    - Após instalar, abra o Anaconda Prompt (anaconda3) e digite o comando:
+```sh
+conda install scrapy
+```
+
+   - Todos os procedimentos referente aos comandos `Scrapy` do tópidco [Utilizando!](#utilizando) , devem ser realizados dentro deste prompt.
+   - Caso preferir, você pode instalar o selenium dentro do Anaconda, após isso você pode realizar todos os comandos do InstaBot dentro deste prompt.
+
+```sh
+conda install selenium
+```   
+    
 
 - Baixe o Webdriver referente ao navegador: [Chrome](https://chromedriver.chromium.org/downloads) ou [Firefox](https://github.com/mozilla/geckodriver/releases).
     - Certifique-se de que a versão do Webdriver é compatível com a do seu navegador!
@@ -122,7 +135,8 @@ pip install scrapy
 
 	- **primeira_palavra**: Será sempre o primeiro elemento da sentença.
 	- **complemento**: Pode ser o elemento logo após a 'primeira_palavra' ou ser o primeiro elemento da sentença, com um emoji logo em seguida.
-	- **emoji**: Emoticon que será sempre o último elemento da sentença. 	
+	- **emoji**: Emoticon que será sempre o último elemento da sentença.
+	    - **Obs: Emoticons não costumam funcionar no Chrome, apenas no Firefox.* 	
 	- **Estas listas servem para criar frases aleatórias, unindo elementos distintos de forma randomica para cada comentário. Quanto mais palavras em cada grupo melhor!**
 
 - 2.5 - Se optou por utilizar o modo 'Trending Hashtags', precisamos realizar o scraping manualmente:

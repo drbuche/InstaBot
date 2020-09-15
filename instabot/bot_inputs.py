@@ -35,12 +35,19 @@ def bot_fazer():
             print('Valor inválido!')
 
 
-def hash_seguidores():
+def hash_seguidores(hashtags):
     while True:
         seleciona_tarefa = input('Para trabalhar em hashtags digite 1.'
                                  '\nPara trabalhar em seguidores de um perfil digite 2.\n')
-        if seleciona_tarefa == '1' or seleciona_tarefa == '2':
-            return seleciona_tarefa
+        if seleciona_tarefa == '1':
+            print('\n--------------------------------------------------------------------------------\n')
+            hash_local_trends(hashtags)
+            print('\n--------------------------------------------------------------------------------\n')
+            return 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
+                   'emoji, username, password, modo_bot, linguagem, navegador)'
+        elif seleciona_tarefa == '2':
+            return 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
+                   'emoji, username, password, modo_bot, linguagem, navegador)'
         else:
             print('Valor inválido!')
 

@@ -5,6 +5,7 @@ from bot import *
 def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                  emoji, username, password, modo_bot, linguagem, navegador):
     instagram = InstagramBot(username, password, modo_bot, linguagem, navegador)
+    time.sleep(5)
     instagram.login()
     while True:
         if len(hashtags) != 0:
@@ -21,7 +22,8 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                 print('--------------------------------------------------------------------------------\n')
                 hashtags.remove(tag)
                 instagram.limpar_urefs()
-            except Exception:
+            except Exception as e:
+                print(f'\n {e} \n')
                 instagram.deu_ruim()
         else:
             instagram.close_browser()
@@ -52,7 +54,8 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
                 print(f'\nPerfil: @{tag} finalizado em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                 print('--------------------------------------------------------------------------------\n')
                 perfis.remove(tag)
-            except Exception:
+            except Exception as e:
+                print(f'\n {e} \n')
                 instagram.deu_ruim()
         else:
             instagram.close_browser()

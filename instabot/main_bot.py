@@ -5,8 +5,8 @@ from bot_inputs import *
 if __name__ == "__main__":
 
     # Hashtags que deseja pesquisar
-    hashtags = ['hashtag1', 'hashtag2', 'hashtag3', ]
-    perfis = ['perfil1', 'perfil2', 'perfil3']
+    hashtags = ['hashtag1', 'hashtag2', 'hashtag3']
+    perfis = ["nerdbunker"]
 
     # Combinação de palavras para comentário aleatório -> (a + b) ou (a + c) ou (b + c)
     primeira_palavra = ['Nossa! ', 'WOW! ', 'Sério isso? ', 'CARAMBA! ']
@@ -20,22 +20,9 @@ if __name__ == "__main__":
     print('\n--------------------------------------------------------------------------------\n')
     tipo_busca = bot_fazer()
     print('\n--------------------------------------------------------------------------------\n')
-    modo_bot = hash_seguidores()
-    if modo_bot == '1':
-        print('\n--------------------------------------------------------------------------------\n')
-        hash_local_trends(hashtags)
-        print('\n--------------------------------------------------------------------------------\n')
+    modo_bot = hash_seguidores(hashtags)
     print('\n--------------------------------------------------------------------------------\n')
     linguagem = linguagem()
     print('\n--------------------------------------------------------------------------------\n')
 
-    if modo_bot == '1':
-        com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
-                     emoji, username, password, modo_bot, linguagem, navegador)
-    elif modo_bot == '2':
-        com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
-                   emoji, username, password, modo_bot, linguagem, navegador)
-
-
-
-
+    eval(modo_bot)

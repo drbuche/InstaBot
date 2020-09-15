@@ -11,9 +11,6 @@ class InstagramBot:
     numero_perfis_atual = 0
     numero_fotos = 0
     contador_para_comentar = 1
-    like = ''
-    post = ''
-    unlike = ''
 
     def __init__(self, username, password, stdout, linguagem, navegador):
         self.username = username
@@ -110,7 +107,7 @@ class InstagramBot:
         limite_fotos = 0
         max_fotos = random.randrange(3, 7)
 
-        for _ in range(1, 2):  # Esse for existe para facilitar novas funcionalidades
+        for _ in range(1, 2):  # Esse 'for' existe para facilitar novas funcionalidades
             try:
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(2)
@@ -136,7 +133,10 @@ class InstagramBot:
                 driver.find_element_by_class_name('Ypffh').click()
                 campo_comentario = driver.find_element_by_class_name('Ypffh')
                 time.sleep(random.randint(2, 4))
-                self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
+                try:
+                    self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
+                except:
+                    pass
                 time.sleep(random.randint(10, 20))
                 driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
                 self.numero_fotos += 1
@@ -172,9 +172,11 @@ class InstagramBot:
                     driver.find_element_by_class_name('Ypffh').click()
                     campo_comentario = driver.find_element_by_class_name('Ypffh')
                     time.sleep(random.randint(2, 4))
-                    self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
-                    time.sleep(2)
-                    driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
+                    try:
+                        self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
+                    except:
+                        time.sleep(2)
+                        driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
                     time.sleep(random.randint(10, 20))
                 except Exception:
                     time.sleep(2)
@@ -189,21 +191,25 @@ class InstagramBot:
                 time.sleep(5)
 
     def tabela_stdout(self):
-        if self.stdout == '1':
+        if self.stdout == 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
+                          'emoji, username, password, modo_bot, linguagem, navegador)':
             print('----------------------------------------')
             print('|Nº - Fotos Faltando |Nº - Fotos Atual | ')
-        elif self.stdout == '2':
+        elif self.stdout == 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
+                            'emoji, username, password, modo_bot, linguagem, navegador)':
             print('-------------------------------------------------------------------')
             print('|Nº - Perfis Faltando | Nº - Perfis Visitados | Nº - Fotos Atual  |')
 
     def contador_stdout(self):
         for _ in range(150):
-            if self.stdout == '1':
+            if self.stdout == 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
+                              'emoji, username, password, modo_bot, linguagem, navegador)':
                 sys.stdout.write(f"\r         {len(self.pic_hrefs) - self.numero_fotos}          |"
                                  f"        {self.numero_fotos}      |")
                 sys.stdout.flush()
                 time.sleep(0.5)
-            elif self.stdout == '2':
+            elif self.stdout == 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
+                                'emoji, username, password, modo_bot, linguagem, navegador)':
                 sys.stdout.write(
                     f"\r           {len(self.seguidores_perfil)}         |"
                     f"          {self.numero_perfis_atual}          |"
@@ -216,7 +222,7 @@ class InstagramBot:
 
     def deu_ruim(self):
         self.driver.close()
-        print('Algo está errado! Por segurança, o programa foi finalizado ')
+        print('\nAlgo está errado! Por segurança, o programa foi finalizado.\n')
         sys.exit()
 
     def close_browser(self):
