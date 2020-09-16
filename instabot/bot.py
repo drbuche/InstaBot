@@ -123,34 +123,41 @@ class InstagramBot:
                 continue
         self.seguidores_perfil.remove(perfil_do_perfil)
 
-    def comentar_fotos(self, x, y, z):
+    def comentar_fotos(self, x, y, z, comentario=None):
         driver = self.driver
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
-            time.sleep(2)
+            time.sleep(5)
             try:
-                time.sleep(random.randint(2, 4))
-                driver.find_element_by_class_name('Ypffh').click()
-                campo_comentario = driver.find_element_by_class_name('Ypffh')
-                time.sleep(random.randint(2, 4))
+                comentario = driver.find_element_by_xpath(f"//a[contains(text(),'{self.username}')]")
+            except:
+                pass
+            if comentario is None:
                 try:
-                    self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
-                except:
-                    pass
-                time.sleep(random.randint(10, 20))
-                driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
-                self.numero_fotos += 1
-                self.contador_stdout()
-                time.sleep(random.randint(367, 603))
-            except Exception:
-                time.sleep(5)
+                    time.sleep(random.randint(2, 4))
+                    driver.find_element_by_class_name('Ypffh').click()
+                    campo_comentario = driver.find_element_by_class_name('Ypffh')
+                    time.sleep(random.randint(2, 4))
+                    try:
+                        self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
+                    except:
+                        pass
+                    time.sleep(random.randint(10, 20))
+                    driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
+                    self.numero_fotos += 1
+                    self.contador_stdout()
+                    time.sleep(random.randint(367, 603))
+                except Exception:
+                    time.sleep(5)
+            time.sleep(5)
+            comentario = None
 
     def like_foto(self, unlike=None):
         driver = self.driver
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
             try:
-                time.sleep(3)
+                time.sleep(4)
                 unlike = self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(self.unlike))
             except Exception:
                 pass
@@ -172,7 +179,7 @@ class InstagramBot:
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
             try:
-                time.sleep(3)
+                time.sleep(4)
                 unlike = self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(self.unlike))
             except Exception:
                 pass
