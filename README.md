@@ -64,6 +64,7 @@ pip3 install scrapy
   - Baixe o Webdriver referente ao navegador: [Chrome](https://chromedriver.chromium.org/downloads) ou [Firefox](https://github.com/mozilla/geckodriver/releases).
     - Certifique-se de que a versão do Webdriver é compatível com a do seu navegador!
     - Caso tenha problema com algum navegador, tente com outro.
+    - **Indico a utilização do Firefox, pois o Chrome apresenta alguns problemas de compatibilidade com o modo 'Comment'.**
   - Mova o Webdriver (apenas o driver e não a pasta!) para:
    ```sh
 sudo mv ~/local_do_driver/driver /usr/local/bin
@@ -121,6 +122,7 @@ conda install selenium
 - Baixe o Webdriver referente ao navegador: [Chrome](https://chromedriver.chromium.org/downloads) ou [Firefox](https://github.com/mozilla/geckodriver/releases).
     - Certifique-se de que a versão do Webdriver é compatível com a do seu navegador!
     - Caso tenha problema com algum navegador, tente com outro.
+    - **Indico a utilização do Firefox, pois o Chrome apresenta alguns problemas de compatibilidade com o modo 'Comment'.**
     - Mova o Webdriver (apenas o driver e não a pasta!) para a pasta que contém o modulo [main_bot.py](https://github.com/drbuche/InstaBot/blob/master/instabot/main_bot.py).
 
 
