@@ -145,55 +145,68 @@ class InstagramBot:
             except Exception:
                 time.sleep(5)
 
-    def like_foto(self, like=True):
+    def like_foto(self, unlike=None):
         driver = self.driver
-        estado_atual_like = self.like if like else self.unlike
-
         for foto_atual in self.pic_hrefs:
             driver.get(foto_atual)
             try:
-                time.sleep(random.randint(6, 12))
-                self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
-                self.numero_fotos += 1
-                self.contador_stdout()
-                time.sleep(random.randint(45, 59))
+                time.sleep(3)
+                unlike = self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(self.unlike))
             except Exception:
-                time.sleep(5)
-
-    def like_comentar(self, x, y, z, like=True):
-        driver = self.driver
-        estado_atual_like = self.like if like else self.unlike
-
-        for foto_atual in self.pic_hrefs:
-            driver.get(foto_atual)
-            if self.contador_para_comentar % 10 == 0:
+                pass
+            if unlike is None:
                 try:
-                    time.sleep(random.randint(2, 10))
-                    driver.find_element_by_class_name('Ypffh').click()
-                    campo_comentario = driver.find_element_by_class_name('Ypffh')
-                    time.sleep(random.randint(2, 4))
-                    try:
-                        self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
-                    except Exception:
-                        pass
-                    try:
-                        time.sleep(2)
-                        driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
-                        time.sleep(random.randint(10, 20))
-                    except:
-                        self.contador_para_comentar -= 1
-                        pass
+                    time.sleep(random.randint(6, 12))
+                    self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(self.like)).click()
+                    self.numero_fotos += 1
+                    self.contador_stdout()
+                    time.sleep(random.randint(45, 59))
                 except Exception:
-                    time.sleep(2)
+                    time.sleep(5)
+            time.sleep(3)
+            unlike = None
+
+    def like_comentar(self, x, y, z, unlike=None):
+        driver = self.driver
+
+        for foto_atual in self.pic_hrefs:
+            driver.get(foto_atual)
             try:
-                time.sleep(random.randint(6, 12))
-                self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(estado_atual_like)).click()
-                self.numero_fotos += 1
-                self.contador_stdout()
-                time.sleep(random.randint(45, 59))
-                self.contador_para_comentar += 1
+                time.sleep(3)
+                unlike = self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(self.unlike))
             except Exception:
-                time.sleep(5)
+                pass
+            if unlike is None:
+                if self.contador_para_comentar % 10 == 0:
+                    try:
+                        time.sleep(random.randint(2, 10))
+                        driver.find_element_by_class_name('Ypffh').click()
+                        campo_comentario = driver.find_element_by_class_name('Ypffh')
+                        time.sleep(random.randint(2, 4))
+                        try:
+                            self.digite_como_pessoa(self.comentario_aleatorio(x, y, z), campo_comentario)
+                        except Exception:
+                            pass
+                        try:
+                            time.sleep(2)
+                            driver.find_element_by_xpath(f"//button[contains(text(),'{self.post}')]").click()
+                            time.sleep(random.randint(10, 20))
+                        except:
+                            self.contador_para_comentar -= 1
+                            pass
+                    except Exception:
+                        time.sleep(2)
+                try:
+                    time.sleep(random.randint(6, 12))
+                    self.driver.find_element_by_xpath("//*[@aria-label='{}']".format(self.like)).click()
+                    self.numero_fotos += 1
+                    self.contador_stdout()
+                    time.sleep(random.randint(45, 59))
+                    self.contador_para_comentar += 1
+                except Exception:
+                    time.sleep(5)
+            time.sleep(3)
+            unlike = None
 
     def tabela_stdout(self):
         if self.stdout == 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \

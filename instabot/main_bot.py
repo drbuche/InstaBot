@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     # Hashtags que deseja pesquisar
     hashtags = ['hashtag1', 'hashtag2', 'hashtag3']
-    perfis = ["nerdbunker"]
+    perfis = ["perfil1", "perfil2", "perfil3"]
 
     # Combinação de palavras para comentário aleatório -> (a + b) ou (a + c) ou (b + c)
     primeira_palavra = ['Nossa! ', 'WOW! ', 'Sério isso? ', 'CARAMBA! ']
