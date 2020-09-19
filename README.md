@@ -198,12 +198,16 @@ ou
     - Seleciono perfis que tem um nicho parecido com o perfil da minha conta do instagram.
 
 
-![N|Solid](https://i.imgur.com/IjinG9z.jpg)  ![N|Solid](https://i.imgur.com/FVo2fb7.jpg)
+![N|Solid](https://i.imgur.com/IjinG9z.jpg)  
+
 
 <p align="center">
   <img src="https://i.imgur.com/AEkS4Uj.jpg">
 </p>  
 
+<p align="right">
+  <img src="https://i.imgur.com/FVo2fb7.jpg">
+</p>  
 
 
 # Observações:
