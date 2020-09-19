@@ -17,9 +17,9 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                 print(f'Número de hashtags coletados: {len(instagram.pic_hrefs)}.\n')
                 instagram.tabela_stdout()
                 eval('instagram.' + tipo_busca)
-                print('----------------------------------------')
+                print('\n----------------------------------------\n')
                 print(f'\nHashtag: #{tag} finalizada em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-                print('--------------------------------------------------------------------------------\n')
+                print('\n--------------------------------------------------------------------------------\n')
                 hashtags.remove(tag)
                 instagram.limpar_urefs()
             except Exception as e:
@@ -50,9 +50,9 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
                     instagram.selecionar_fotos_perfil()
                     eval('instagram.' + tipo_busca)
                     instagram.limpar_urefs()
-                print('-------------------------------------------------------------------')
+                print('\n-------------------------------------------------------------------\n')
                 print(f'\nPerfil: @{tag} finalizado em ' + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-                print('--------------------------------------------------------------------------------\n')
+                print('\n--------------------------------------------------------------------------------\n')
                 perfis.remove(tag)
             except Exception as e:
                 print(f'\n {e} \n')

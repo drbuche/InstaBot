@@ -23,6 +23,8 @@ Bot para automatizar curtidas e comentários usando Selenium e Scrapy!
         
    - [Utilizando!](#utilizando)
    
+   - [Desempenho do Bot!](#desempenho-do-bot)
+   
    - [Observações](#observações)
 
 # Preparando o ambiente:
@@ -173,6 +175,32 @@ ou
 ```
 - 4 – ?????
 - 5 – profit!
+
+# Desempenho do Bot!
+
+- Criei uma conta do zero, coloquei algumas fotos e segui alguns grupos de bandas, jogos, etc...
+
+- Até o momento, com 8 dias de uso, a conta saiu do ZERO e está com:
+    - **205 Seguidores.**
+    - **711 Likes nas fotos.**
+    - **30 comentários em fotos.**
+    - **Mais de 30 mensagens no Direct.**
+
+  
+<p align="center">
+  <img src="https://i.imgur.com/6SsM3FR.jpg">
+</p>  
+
+- O Bot está rodando nesta conta desde o dia 11 de setembro. (8 dias de uso)
+- Estou rodando o Bot de 6-8h por dia.
+- Utilizo no modo **"comentar + curtir"** em **seguidores de perfis**.
+- Para interagir com os últimos 120 seguidores do perfil, procuro por perfis que tem em média 15 a 50 mil seguidores. (perfis com mais de 100 mil seguidores são bons, mas costumam ter muitas contas fake...)
+    - Seleciono perfis que tem um nicho parecido com o perfil da minha conta do instagram.
+
+
+![N|Solid](https://i.imgur.com/IjinG9z.jpg)  ![N|Solid](https://i.imgur.com/FVo2fb7.jpg)
+
+
 
 # Observações:
 - **Durante a execução, você terá a opção de selecionar o Webdriver que deseja utilizar, além de selecionar o idioma do navegador.**
