@@ -200,6 +200,10 @@ ou
 
 ![N|Solid](https://i.imgur.com/IjinG9z.jpg)  ![N|Solid](https://i.imgur.com/FVo2fb7.jpg)
 
+<p align="center">
+  <img src="https://i.imgur.com/AEkS4Uj.jpg">
+</p>  
+
 
 
 # Observações:
