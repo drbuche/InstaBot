@@ -5,7 +5,7 @@
 
 ### Guide Language / Idioma do Guia:
    - [English Guide](#english-guide)
-   - [Guia em Português](#guia-em-portugus)
+   - [Guia em Português](#guia-em-português)
 
 ***The bot works 100% in Portuguese and English!***   
 ***O bot funciona 100% em Português e Ingles!***
@@ -27,7 +27,7 @@ Bot to automate likes and comments using Selenium and Scrapy!
 *I intend to add more features and build a graphical interface in the future!*
 
 
-# Summary:
+# Index:
    
    - [Preparing the environment](#preparing-the-environment) 
         - [On Linux](#on-linux)
