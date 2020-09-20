@@ -1,84 +1,93 @@
 from getpass import getpass
+from language import *
 
 
-def webdriver():
-    while True:
-        driver = input('Qual seu Webdriver?\n'
-                       'Chrome: digite 1.\n'
-                       'Firefox: digite 2.\n')
-        if driver == '1':
-            return 'webdriver.Chrome()'
-        elif driver == '2':
-            return 'webdriver.Firefox()'
-        else:
-            print('Valor inválido!')
+class Inputs:
 
+    def __init__(self):
+        while True:
+            print('-----------------------------Software Lenguage----------------------------------')
+            language_selection = input("For englis: Type 1\n"
+                                       "Para Português: Digite 2\n")
 
-def login_pass():
-    username = input('Qual o usuário?\n')
-    password = getpass(prompt='\nQual a senha?')
-    return username, password
+            if language_selection =='1':
+                self.language = 'en'
+                return
 
+            elif language_selection == '2':
+                self.language = 'pt'
+                return
 
-def bot_fazer():
-    while True:
-        seleciona_tarefa = input('Para apenas comentar,digite 1 (Leva de 6-10 min entre comentários).'
-                                 '\nPara apenas dar like, digite 2 (1 like a cada 1-2 min). '
-                                 '\nPara comentar e dar like, digite 3 (A cada 10 likes 1 comentário). \n')
-        if seleciona_tarefa == '1':
-            return 'comentar_fotos(primeira_palavra, complemento, emoji)'
-        elif seleciona_tarefa == '2':
-            return 'like_foto()'
-        elif seleciona_tarefa == '3':
-            return 'like_comentar(primeira_palavra, complemento, emoji)'
-        else:
-            print('Valor inválido!')
+            else:
+                print('Invalid Value!')
 
+            print('--------------------------------------------------------------------------------')
 
-def hash_seguidores(hashtags):
-    while True:
-        seleciona_tarefa = input('Para trabalhar em hashtags digite 1.'
-                                 '\nPara trabalhar em seguidores de um perfil digite 2.\n')
-        if seleciona_tarefa == '1':
-            print('\n--------------------------------------------------------------------------------\n')
-            hash_local_trends(hashtags)
-            print('\n--------------------------------------------------------------------------------\n')
-            return 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
-                   'emoji, username, password, modo_bot, linguagem, navegador)'
-        elif seleciona_tarefa == '2':
-            return 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
-                   'emoji, username, password, modo_bot, linguagem, navegador)'
-        else:
-            print('Valor inválido!')
+    def webdriver(self):
+        while True:
+            driver = input(eval(self.language + '_webdriver_input'))
+            if driver == '1':
+                return 'webdriver.Chrome()'
+            elif driver == '2':
+                return 'webdriver.Firefox()'
+            else:
+                print('Valor inválido!')
 
+    def login_pass(self):
+        username = input(eval(self.language + '_username_input'))
+        password = getpass(prompt=eval(self.language + '_pass_input'))
+        return username, password
 
-def hash_local_trends(hashtags):
-    while True:
-        local_trends = input('Para trabalhar em hashtags personalizadas, digite 1.'
-                             '\nPara trabalhar com as top 5 # do brasil (da última hora no twitter), digite 2.\n')
-        if local_trends == '1':
-            return print(f'Suas hashtags são: ' + str(hashtags))
-        elif local_trends == '2':
-            hashtags.clear()
-            #Futuro auto execute do scrapy para diferentes SO
-            top_5_hashtags = open("top_5_hashtags_do_dia.txt", "r")
-            hashtags_bruta = top_5_hashtags.readlines()
-            hashtags_lista = str(hashtags_bruta).replace('\'', '').replace('[', '').replace(']', '').split(',')
-            for hashtag in hashtags_lista:
-                hashtags.append(hashtag)
-            print(f'As top 5 hashtags são: ' + str(hashtags))
-            return top_5_hashtags.close()
+    def bot_fazer(self):
+        while True:
+            seleciona_tarefa = input(eval(self.language + '_bot_fazer'))
+            if seleciona_tarefa == '1':
+                return 'comentar_fotos(primeira_palavra, complemento, emoji)'
+            elif seleciona_tarefa == '2':
+                return 'like_foto()'
+            elif seleciona_tarefa == '3':
+                return 'like_comentar(primeira_palavra, complemento, emoji)'
+            else:
+                print('Invalid Value!')
 
-        else:
-            print('Valor inválido!')
+    def hash_seguidores(self, hashtags):
+        while True:
+            seleciona_tarefa = input(eval(self.language + '_hash_seguidores'))
+            if seleciona_tarefa == '1':
+                print('\n--------------------------------------------------------------------------------\n')
+                self.hash_local_trends(hashtags)
+                print('\n--------------------------------------------------------------------------------\n')
+                return 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
+                       'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
+            elif seleciona_tarefa == '2':
+                return 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
+                       'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
+            else:
+                print('Invalid Value!')
 
+    def hash_local_trends(self, hashtags):
+        while True:
+            local_trends = input(eval(self.language + '_hash_local_trends'))
+            if local_trends == '1':
+                return print(eval(self.language + '_suas_hash') + str(hashtags))
+            elif local_trends == '2':
+                hashtags.clear()
+                #Futuro auto execute do scrapy para diferentes SO
+                top_5_hashtags = open("top_5_hashtags_do_dia.txt", "r")
+                hashtags_bruta = top_5_hashtags.readlines()
+                hashtags_lista = str(hashtags_bruta).replace('\'', '').replace('[', '').replace(']', '').split(',')
+                for hashtag in hashtags_lista:
+                    hashtags.append(hashtag)
+                print(eval(self.language + '_top_hash') + str(hashtags))
+                return top_5_hashtags.close()
 
-def linguagem():
-    while True:
-        lingua = input('Qual o idioma do seu navegador?'
-                          '\nDigite 1 para Inglês\n'
-                          'Digite 2 para Português\n')
-        if lingua == '1' or lingua == '2':
-            return lingua
-        else:
-            print('Valor inválido!')
+            else:
+                print('Invalid Value!')
+
+    def linguagem(self):
+        while True:
+            lingua = input(eval(self.language + '_linguagem'))
+            if lingua == '1' or lingua == '2':
+                return lingua
+            else:
+                print('Invalid Value!')

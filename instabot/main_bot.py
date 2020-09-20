@@ -4,6 +4,9 @@ from bot_inputs import *
 
 if __name__ == "__main__":
 
+    # Software - Lenguage Selection
+    inicio = Inputs()
+
     # Hashtags que deseja pesquisar
     hashtags = ['hashtag1', 'hashtag2', 'hashtag3']
     perfis = ["perfil1", "perfil2", "perfil3"]
@@ -14,15 +17,15 @@ if __name__ == "__main__":
     emoji = ['💙️', '🥰', '🔥', '💥']
 
     print('--------------------------------------------------------------------------------\n')
-    navegador = webdriver()
+    navegador = inicio.webdriver()
     print('--------------------------------------------------------------------------------\n')
-    username, password = login_pass()
+    username, password = inicio.login_pass()
     print('\n--------------------------------------------------------------------------------\n')
-    tipo_busca = bot_fazer()
+    tipo_busca = inicio.bot_fazer()
     print('\n--------------------------------------------------------------------------------\n')
-    modo_bot = hash_seguidores(hashtags)
+    modo_bot = inicio.hash_seguidores(hashtags)
     print('\n--------------------------------------------------------------------------------\n')
-    linguagem = linguagem()
+    linguagem = inicio.linguagem()
     print('\n--------------------------------------------------------------------------------\n')
 
     eval(modo_bot)

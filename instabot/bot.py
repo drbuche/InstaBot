@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from language import *
 import time
 import random
 import sys
@@ -12,12 +13,13 @@ class InstagramBot:
     numero_fotos = 0
     contador_para_comentar = 1
 
-    def __init__(self, username, password, stdout, linguagem, navegador):
+    def __init__(self, username, password, stdout, linguagem, navegador, inicio):
         self.username = username
         self.password = password
         self.stdout = stdout
         self.driver = eval(navegador)
         self.linguagem = linguagem
+        self.inicio = inicio
         if linguagem == '1':
             self.like = 'Like'
             self.post = 'Post'
@@ -217,24 +219,24 @@ class InstagramBot:
 
     def tabela_stdout(self):
         if self.stdout == 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
-                          'emoji, username, password, modo_bot, linguagem, navegador)':
+                          'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
             print('----------------------------------------')
-            print('|Nº - Fotos Faltando |Nº - Fotos Atual | ')
+            print(eval(self.inicio.language + '_fotos_faltando_hash'))
         elif self.stdout == 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
-                            'emoji, username, password, modo_bot, linguagem, navegador)':
+                            'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
             print('-------------------------------------------------------------------')
-            print('|Nº - Perfis Faltando | Nº - Perfis Visitados | Nº - Fotos Atual  |')
+            print(eval(self.inicio.language + '_seguidores_faltando'))
 
     def contador_stdout(self):
         for _ in range(150):
             if self.stdout == 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
-                              'emoji, username, password, modo_bot, linguagem, navegador)':
+                              'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
                 sys.stdout.write(f"\r         {len(self.pic_hrefs) - self.numero_fotos}          |"
                                  f"        {self.numero_fotos}      |")
                 sys.stdout.flush()
                 time.sleep(0.5)
             elif self.stdout == 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
-                                'emoji, username, password, modo_bot, linguagem, navegador)':
+                                'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
                 sys.stdout.write(
                     f"\r           {len(self.seguidores_perfil)}         |"
                     f"          {self.numero_perfis_atual}          |"
@@ -247,7 +249,7 @@ class InstagramBot:
 
     def deu_ruim(self):
         self.driver.close()
-        print('\nAlgo está errado! Por segurança, o programa foi finalizado.\n')
+        print(eval(self.inicio.language + '_deu_ruim'))
         sys.exit()
 
     def close_browser(self):
