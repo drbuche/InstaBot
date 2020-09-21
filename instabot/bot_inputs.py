@@ -46,11 +46,11 @@ class Inputs:
         while True:
             seleciona_tarefa = input(i18n.t('bot_fazer'))
             if seleciona_tarefa == '1':
-                return 'comentar_fotos(primeira_palavra, complemento, emoji)'
+                return ['comentar_fotos', primeira_palavra, complemento, emoji]
             elif seleciona_tarefa == '2':
-                return 'like_foto()'
+                return ['like_foto']
             elif seleciona_tarefa == '3':
-                return 'like_comentar(primeira_palavra, complemento, emoji)'
+                return ['like_comentar', primeira_palavra, complemento, emoji]
             else:
                 print(i18n.t('invalid_value'))
 
@@ -61,11 +61,11 @@ class Inputs:
                 print('\n--------------------------------------------------------------------------------\n')
                 self.hash_local_trends(hashtags)
                 print('\n--------------------------------------------------------------------------------\n')
-                return 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
-                       'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
+                return ['com_hashtags', hashtags, tipo_busca, primeira_palavra, complemento,
+                        emoji, username, password, modo_bot, linguagem, navegador, inicio]
             elif seleciona_tarefa == '2':
-                return 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
-                       'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
+                return ['com_perfil', perfis, tipo_busca, primeira_palavra, complemento,
+                        emoji, username, password, modo_bot, linguagem, navegador, inicio]
             else:
                 print(i18n.t('invalid_value'))
 

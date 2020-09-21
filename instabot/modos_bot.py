@@ -17,7 +17,7 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                 instagram.selecionar_fotos_hashtags(tag)
                 print(f'{i18n.t("num_com_hashtags_coletadas")} {len(instagram.pic_hrefs)} \n')
                 instagram.tabela_stdout()
-                getattr(instagram, tipo_busca)()
+                getattr(instagram, tipo_busca[0])(tipo_busca[1:])
                 print('\n----------------------------------------\n')
                 print(f'\nHashtag: #{tag} ' + i18n.t('com_hashtags_finalizada') +
                       datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -51,7 +51,7 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
                 while len(instagram.seguidores_perfil) != 0:
                     time.sleep(20)
                     instagram.selecionar_fotos_perfil()
-                    getattr(instagram, tipo_busca)()
+                    getattr(instagram, tipo_busca[0])(tipo_busca[1:])
                     instagram.limpar_urefs()
                 print('\n-------------------------------------------------------------------\n')
                 print('\n' + i18n.t("sem_hashtags_inicia") + f' @{tag} ' + i18n.t("com_hashtags_finalizada")
