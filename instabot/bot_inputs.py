@@ -6,8 +6,8 @@ class Inputs:
 
     def __init__(self):
         while True:
-            print('-----------------------------Software Lenguage----------------------------------')
-            language_selection = input("For englis: Type 1\n"
+            print('-----------------------------Software Language----------------------------------')
+            language_selection = input("For english: Type 1\n"
                                        "Para Português: Digite 2\n")
 
             if language_selection =='1':
