@@ -1,6 +1,5 @@
 import scrapy
 
-
 class TwitterScrapy(scrapy.Spider):
     name = 'twitter'
     start_urls = ['https://trends24.in/brazil/']
