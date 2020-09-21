@@ -1,5 +1,6 @@
 from datetime import datetime
 from bot import *
+import i18n
 
 def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                  emoji, username, password, modo_bot, linguagem, navegador, inicio):

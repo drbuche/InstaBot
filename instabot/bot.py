@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 import random
 import sys
-
+import i18n
 
 class InstagramBot:
     seguidores_perfil = []

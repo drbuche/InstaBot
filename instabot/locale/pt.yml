@@ -4,7 +4,7 @@ pt:
         Qual seu Webdriver?
             Chrome: digite 1.
             Firefox: digite 2.
-    username_input: Qual o usuário?\n
+    username_input: Qual o usuário?
     pass_input: Qual a senha?
     bot_fazer: |
         Para apenas comentar: Digite 1 (Leva de 6-10 min entre comentários).

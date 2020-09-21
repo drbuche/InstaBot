@@ -4,7 +4,7 @@ en:
         What's your Webdriver
             Chrome: Type 1.
             Firefox: Type 2.
-    username_input: Username?\n
+    username_input: Username?
     pass_input: Password?
     bot_fazer: |
         To just Comment: Type 1 (It takes 6 to 10 minutes between each comments).
