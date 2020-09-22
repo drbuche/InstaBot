@@ -65,7 +65,7 @@ class Inputs:
                        'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
             elif seleciona_tarefa == '2':
                 return 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
-                        'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
+                       'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
             else:
                 print(i18n.t('invalid_value'))
 
