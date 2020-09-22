@@ -1,0 +1,34 @@
+pt:
+    invalid_value: Valor Incorreto
+    webdriver_input: |
+        Qual seu Webdriver?
+            Chrome: digite 1.
+            Firefox: digite 2.
+    username_input: Qual o usuário?
+    pass_input: Qual a senha?
+    bot_fazer: |
+        Para apenas comentar: Digite 1 (Leva de 6-10 min entre comentários).
+        Para apenas dar like: Digite 2 (1 like a cada 1-2 min).
+        Para comentar e dar like: Digite 3 (A cada 10 likes 1 comentário).
+    hash_seguidores: |
+        Para trabalhar em hashtags: Digite 1.
+        Para trabalhar em seguidores de um perfil: Digite 2.
+    hash_local_trends: |
+        Para trabalhar em hashtags personalizadas: Digite 1.
+        Para trabalhar com as top 5 # do brasil (da última hora no twitter): Digite 2.
+    suas_hash: "Suas hashtags são:"
+    top_hash: "As top 5 hashtags são:"
+    linguagem: |
+        Qual o idioma do seu navegador?
+        Digite 1 para Inglês
+        Digite 2 para Português
+    com_hashtags_inicia: "iniciada em: "
+    num_com_hashtags_coletadas: "Número de Fotos coletadas:"
+    com_hashtags_finalizada: "finalizada em: "
+    lista_com_hashtags_acabou: "A lista de hashtags acabou! : "
+    sem_hashtags_inicia: "Perfil: "
+    sem_hashtags_numero_seg: "Número de seguidores coletados:"
+    lista_sem_hashtags_acabou: "A lista de perfis acabou! : "
+    fotos_faltando_hash: "|Nº - Fotos Faltando |Nº - Fotos Atual | "
+    seguidores_faltando: "|Nº - Perfis Faltando | Nº - Perfis Visitados | Nº - Fotos Atual  |"
+    deu_ruim: "\nAlgo está errado! Por segurança, o programa foi finalizado.\n"

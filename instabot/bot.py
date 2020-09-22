@@ -1,10 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from language import *
 import time
 import random
 import sys
-
+import i18n
 
 class InstagramBot:
     seguidores_perfil = []
@@ -221,11 +220,11 @@ class InstagramBot:
         if self.stdout == 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
                           'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
             print('----------------------------------------')
-            print(eval(self.inicio.language + '_fotos_faltando_hash'))
+            print(i18n.t('fotos_faltando_hash'))
         elif self.stdout == 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
                             'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
             print('-------------------------------------------------------------------')
-            print(eval(self.inicio.language + '_seguidores_faltando'))
+            print(i18n.t('seguidores_faltando'))
 
     def contador_stdout(self):
         for _ in range(150):
@@ -249,7 +248,7 @@ class InstagramBot:
 
     def deu_ruim(self):
         self.driver.close()
-        print(eval(self.inicio.language + '_deu_ruim'))
+        print(i18n.t('deu_ruim'))
         sys.exit()
 
     def close_browser(self):

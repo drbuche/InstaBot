@@ -1,7 +1,6 @@
 from datetime import datetime
 from bot import *
-from language import *
-
+import i18n
 
 def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                  emoji, username, password, modo_bot, linguagem, navegador, inicio):
@@ -13,14 +12,14 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
             try:
                 tag = random.choice(hashtags)
                 print('--------------------------------------------------------------------------------')
-                print(f'\nHashtag: #{tag} ' + eval(inicio.language + '_com_hashtags_inicia') + ' ' +
+                print(f'\nHashtag: #{tag} ' + i18n.t('com_hashtags_inicia') + ' ' +
                       datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
                 instagram.selecionar_fotos_hashtags(tag)
-                print(f'{eval(inicio.language + "_num_com_hashtags_coletadas")} {len(instagram.pic_hrefs)} \n')
+                print(f'{i18n.t("num_com_hashtags_coletadas")} {len(instagram.pic_hrefs)} \n')
                 instagram.tabela_stdout()
                 eval('instagram.' + tipo_busca)
                 print('\n----------------------------------------\n')
-                print(f'\nHashtag: #{tag} ' + eval(inicio.language + '_com_hashtags_finalizada') +
+                print(f'\nHashtag: #{tag} ' + i18n.t('com_hashtags_finalizada') +
                       datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                 print('\n--------------------------------------------------------------------------------\n')
                 hashtags.remove(tag)
@@ -30,7 +29,7 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                 instagram.deu_ruim()
         else:
             instagram.close_browser()
-            print(eval(inicio.language + '_lista_com_hashtags_acabou') + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print(i18n.t('lista_com_hashtags_acabou') + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             sys.exit()
 
 
@@ -44,10 +43,10 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
             try:
                 tag = random.choice(perfis)
                 print('--------------------------------------------------------------------------------')
-                print('\n' + eval(inicio.language + "_sem_hashtags_inicia") + f'@{tag} ' + eval(inicio.language +
-                      "_com_hashtags_inicia") + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                print('\n' + i18n.t("sem_hashtags_inicia") + f'@{tag} ' + i18n.t("com_hashtags_inicia")
+                 + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                 instagram.listar_perfis_do_perfil(tag)
-                print(f'{eval(inicio.language + "_sem_hashtags_numero_seg")} {len(instagram.seguidores_perfil)}.\n')
+                print(f'{i18n.t("sem_hashtags_numero_seg")} {len(instagram.seguidores_perfil)}.\n')
                 instagram.tabela_stdout()
                 while len(instagram.seguidores_perfil) != 0:
                     time.sleep(20)
@@ -55,8 +54,8 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
                     eval('instagram.' + tipo_busca)
                     instagram.limpar_urefs()
                 print('\n-------------------------------------------------------------------\n')
-                print('\n' + eval(inicio.language + "_sem_hashtags_inicia") + f' @{tag} ' + eval(inicio.language +
-                      "_com_hashtags_finalizada") + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+                print('\n' + i18n.t("sem_hashtags_inicia") + f' @{tag} ' + i18n.t("com_hashtags_finalizada")
+                 + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                 print('\n--------------------------------------------------------------------------------\n')
                 perfis.remove(tag)
             except Exception as e:
@@ -64,6 +63,6 @@ def com_perfil(perfis, tipo_busca, primeira_palavra, complemento,
                 instagram.deu_ruim()
         else:
             instagram.close_browser()
-            print(eval(inicio.language + '_lista_sem_hashtags_acabou') + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            print(i18n.t('lista_sem_hashtags_acabou') + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             sys.exit()
 

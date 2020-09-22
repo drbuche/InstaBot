@@ -1,6 +1,5 @@
 import scrapy
 
-
 class TwitterScrapy(scrapy.Spider):
     name = 'twitter'
     start_urls = ['https://trends24.in/brazil/']
@@ -15,6 +14,6 @@ class TwitterScrapy(scrapy.Spider):
             self.hashtags_dia_lista.append(hashtags_trend)
             yield {'top_5': hashtags_trend}
 
-        hashtags_dia = open("top_5_hashtags_do_dia.txt", "w")
+        hashtags_dia = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'top_5_hashtags_do_dia.txt'), "w")
         hashtags_dia.writelines(','.join(self.hashtags_dia_lista))
         hashtags_dia.close()

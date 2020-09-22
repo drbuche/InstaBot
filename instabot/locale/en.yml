@@ -1,0 +1,34 @@
+en:
+    invalid_value: Invalid Value
+    webdriver_input: |
+        What's your Webdriver
+            Chrome: Type 1.
+            Firefox: Type 2.
+    username_input: Username?
+    pass_input: Password?
+    bot_fazer: |
+        To just Comment: Type 1 (It takes 6 to 10 minutes between each comments).
+        To just Like: Type 2 (One like every 1-2 min.)
+        To Comment and Like: Type 3 (Every 10 likes 1 comment).
+    hash_seguidores: |
+        To work on Hashtags: Type 1.
+        To work on Followers of a profile: Type 2.
+    hash_local_trends: |
+        To work on custom hashtags: Type 1.
+        To work with the top 5 # in brazil/eua (last minute on twitter): Type 2.
+    suas_hash: "His hashtags are: "
+    top_hash: "The top 5 hashtags are:"
+    linguagem: |
+        What is the language of your browser?
+        Type 1 for English
+        Type 2 for Portuguese
+    com_hashtags_inicia: "started on: "
+    num_com_hashtags_coletadas: "Number of Pics collected:"
+    com_hashtags_finalizada: "ended in: "
+    lista_com_hashtags_acabou: "The list is over! :"
+    sem_hashtags_inicia: "Profile: "
+    sem_hashtags_numero_seg: "Number of Followers collected:"
+    lista_sem_hashtags_acabou: "The list is over! :"
+    fotos_faltando_hash: "|Nº -    Pics Left   |Nº - Current Pics| "
+    seguidores_faltando: "|Nº - Profiles Left   | Nº - Profiles Visited | Nº - Current Pics |"
+    deu_ruim: "\nA Something is wrong! For security, the program was closed.\n"
