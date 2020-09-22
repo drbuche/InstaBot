@@ -16,6 +16,7 @@ def com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento,
                       datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '\n')
                 instagram.selecionar_fotos_hashtags(tag)
                 print(f'{i18n.t("num_com_hashtags_coletadas")} {len(instagram.pic_hrefs)} \n')
+                instagram.tabela_stdout()
                 eval('instagram.' + tipo_busca)
                 print('\n----------------------------------------\n')
                 print(f'\nHashtag: #{tag} ' + i18n.t('com_hashtags_finalizada') +
