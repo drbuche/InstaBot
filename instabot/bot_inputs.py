@@ -8,7 +8,7 @@ class Inputs:
         i18n.load_path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'locale'))
         i18n.set('filename_format', '{locale}.{format}')
         i18n.set('fallback', 'en')
-        print(i18n.t("pass_input"))
+
         while True:
             print('-----------------------------Software Language----------------------------------')
             language_selection = input("For english: Type 1\n"
@@ -61,10 +61,10 @@ class Inputs:
                 print('\n--------------------------------------------------------------------------------\n')
                 self.hash_local_trends(hashtags)
                 print('\n--------------------------------------------------------------------------------\n')
-                return 'com_hashtags( hashtags, tipo_busca, primeira_palavra, complemento,' \
-                        'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
+                return 'com_hashtags(hashtags, tipo_busca, primeira_palavra, complemento, ' \
+                       'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
             elif seleciona_tarefa == '2':
-                return 'com_perfil( perfis, tipo_busca, primeira_palavra, complemento,' \
+                return 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
                         'emoji, username, password, modo_bot, linguagem, navegador, inicio)'
             else:
                 print(i18n.t('invalid_value'))
