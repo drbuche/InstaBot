@@ -1,4 +1,5 @@
 import scrapy
+import os
 
 class TwitterScrapy(scrapy.Spider):
     name = 'twitter'
