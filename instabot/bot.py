@@ -5,6 +5,7 @@ import random
 import sys
 import i18n
 
+
 class InstagramBot:
     seguidores_perfil = []
     pic_hrefs = []
@@ -66,6 +67,22 @@ class InstagramBot:
     def selecionar_fotos_hashtags(self, hashtag):
         driver = self.driver
         driver.get("https://www.instagram.com/explore/tags/" + hashtag + "/")
+        time.sleep(2)
+
+        for _ in range(1, 7):
+            try:
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(2)
+                hrefs_na_tela = driver.find_elements_by_tag_name('a')
+                hrefs_na_tela = [elem.get_attribute('href') for elem in hrefs_na_tela
+                                 if '.com/p/' in elem.get_attribute('href')]
+                [self.pic_hrefs.append(href) for href in hrefs_na_tela if href not in self.pic_hrefs]
+            except Exception:
+                continue
+
+    def selecionar_fotos_local(self, link_local):
+        driver = self.driver
+        driver.get(link_local)
         time.sleep(2)
 
         for _ in range(1, 7):
@@ -221,6 +238,12 @@ class InstagramBot:
                           'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
             print('----------------------------------------')
             print(i18n.t('fotos_faltando_hash'))
+
+        elif self.stdout == 'com_local(local, tipo_busca, primeira_palavra, complemento, ' \
+                            'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
+            print('----------------------------------------')
+            print(i18n.t('fotos_faltando_hash'))
+
         elif self.stdout == 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
                             'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
             print('-------------------------------------------------------------------')
@@ -234,6 +257,13 @@ class InstagramBot:
                                  f"        {self.numero_fotos}      |")
                 sys.stdout.flush()
                 time.sleep(0.5)
+            elif self.stdout == 'com_local(local, tipo_busca, primeira_palavra, complemento, ' \
+                                'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
+                sys.stdout.write(f"\r         {len(self.pic_hrefs) - self.numero_fotos}          |"
+                                 f"        {self.numero_fotos}      |")
+                sys.stdout.flush()
+                time.sleep(0.5)
+
             elif self.stdout == 'com_perfil(perfis, tipo_busca, primeira_palavra, complemento, ' \
                                 'emoji, username, password, modo_bot, linguagem, navegador, inicio)':
                 sys.stdout.write(

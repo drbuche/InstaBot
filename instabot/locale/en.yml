@@ -13,11 +13,14 @@ en:
     hash_seguidores: |
         To work on Hashtags: Type 1.
         To work on Followers of a profile: Type 2.
+        To work on Locations: Type 3.
     hash_local_trends: |
         To work on custom hashtags: Type 1.
         To work with the top 5 # in brazil/eua (last minute on twitter): Type 2.
     suas_hash: "His hashtags are: "
     top_hash: "The top 5 hashtags are:"
+    seus_locais: "Locations are:"
+    seus_perfis: "Profiles are:"
     linguagem: |
         What is the language of your browser?
         Type 1 for English
@@ -29,6 +32,7 @@ en:
     sem_hashtags_inicia: "Profile: "
     sem_hashtags_numero_seg: "Number of Followers collected:"
     lista_sem_hashtags_acabou: "The list is over! :"
+    lista_com_locais_acabou: " - The photo list is over!"
     fotos_faltando_hash: "|Nº -    Pics Left   |Nº - Current Pics| "
     seguidores_faltando: "|Nº - Profiles Left   | Nº - Profiles Visited | Nº - Current Pics |"
     deu_ruim: "\nA Something is wrong! For security, the program was closed.\n"

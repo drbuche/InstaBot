@@ -17,9 +17,10 @@ Bot to automate likes and comments using Selenium and Scrapy!
 - [x] Just Like photos.
 - [x] Just Comment on photos.
 - [x] Like and Comment on photos.
-- [x] It has 2 search modes.
+- [x] It has 3 search modes.
     - Hashtags.
     - Followers of a profile.
+    - Locations.
 - [x] It has a sub-mode that searches for Twitter Trending Topics and Hashtags in Brazil.(Improving)
 
 *I intend to add more features and build a graphical interface in the future!*
@@ -67,9 +68,10 @@ Bot para automatizar curtidas e comentários usando Selenium e Scrapy!
 - [x] Apenas Curtir fotos.
 - [x] Apenas Comentar em fotos.
 - [x] Curtir e Comentar em fotos.
-- [x] Possui 2 modos de busca.
+- [x] Possui 3 modos de busca.
     - Hashtags.
     - Seguidores de um perfil.
+    - Locais.
 - [x] Possui um sub-modo que busca por Trending Topics e Hashtags do twitter no Brasil.
 
 *Pretendo adicionar mais funcionalidades e construir uma interface gráfica futuramente!*

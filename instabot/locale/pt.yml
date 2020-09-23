@@ -11,13 +11,16 @@ pt:
         Para apenas dar like: Digite 2 (1 like a cada 1-2 min).
         Para comentar e dar like: Digite 3 (A cada 10 likes 1 comentário).
     hash_seguidores: |
-        Para trabalhar em hashtags: Digite 1.
-        Para trabalhar em seguidores de um perfil: Digite 2.
+        Para trabalhar em Hashtags: Digite 1.
+        Para trabalhar em Seguidores de um perfil: Digite 2.
+        Para trabalhar em Locais: Digite 3.
     hash_local_trends: |
         Para trabalhar em hashtags personalizadas: Digite 1.
         Para trabalhar com as top 5 # do brasil (da última hora no twitter): Digite 2.
     suas_hash: "Suas hashtags são:"
     top_hash: "As top 5 hashtags são:"
+    seus_locais: "Seus Locais são:"
+    seus_perfis: "Seus Perfis são:"
     linguagem: |
         Qual o idioma do seu navegador?
         Digite 1 para Inglês
@@ -25,7 +28,8 @@ pt:
     com_hashtags_inicia: "iniciada em: "
     num_com_hashtags_coletadas: "Número de Fotos coletadas:"
     com_hashtags_finalizada: "finalizada em: "
-    lista_com_hashtags_acabou: "A lista de hashtags acabou! : "
+    lista_com_hashtags_acabou: "A lista de Hashtags acabou! : "
+    lista_com_locais_acabou: " - A lista de fotos acabou! : "
     sem_hashtags_inicia: "Perfil: "
     sem_hashtags_numero_seg: "Número de seguidores coletados:"
     lista_sem_hashtags_acabou: "A lista de perfis acabou! : "

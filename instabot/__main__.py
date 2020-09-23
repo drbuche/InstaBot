@@ -12,6 +12,8 @@ if __name__ == "__main__":
     # Hashtags que deseja pesquisar
     hashtags = ['hashtag1', 'hashtag2', 'hashtag3']
     perfis = ["perfil1", "perfil2", "perfil3"]
+    local = ['https://www.instagram.com/explore/locations/1964119/goiabeiras-shopping/', 'https://www.instagram.com/explore/locations/215855667/chapada-dos-guimaraes/']
+
 
     # Combinação de palavras para comentário aleatório -> (a + b) ou (a + c) ou (b + c)
     primeira_palavra = ['Nossa! ', 'WOW! ', 'Sério isso? ', 'CARAMBA! ']
@@ -25,7 +27,7 @@ if __name__ == "__main__":
     print('\n--------------------------------------------------------------------------------\n')
     tipo_busca = inicio.bot_fazer()
     print('\n--------------------------------------------------------------------------------\n')
-    modo_bot = inicio.hash_seguidores(hashtags)
+    modo_bot = inicio.hash_seguidores_local(hashtags, local)
     print('\n--------------------------------------------------------------------------------\n')
     linguagem = inicio.linguagem()
     print('\n--------------------------------------------------------------------------------\n')
